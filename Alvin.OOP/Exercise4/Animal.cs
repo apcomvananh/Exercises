@@ -2,34 +2,18 @@
 {
     public abstract class Animal
     {
-        private string _name;
-        private int _age;
-        private string _sex;
-
         public Animal(string name, int age, string sex)
         {
-            _name = name;
-            _age = age;
-            _sex = sex;
+            Name = name;
+            Age = age;
+            Sex = sex;
         }
 
-        public string Name
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
+        public string Name { get; private set; }
 
-        public int Age
-        {
-            get { return _age; }
-            set { _age = value; }
-        }
+        public int Age { get; private set; }
 
-        public string Sex
-        {
-            get { return _sex; }
-            set { _sex = value; }
-        }
+        public string Sex { get; private set; }
 
         public abstract void ProduceSound();
     }
