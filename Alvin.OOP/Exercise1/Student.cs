@@ -2,20 +2,12 @@
 {
     public class Student : People
     {
-        ////Fields
-        private int _classNumber;
-
-        ////Contructor
-        public Student(string name, int classNumber) : base(name)
+        public Student(string name, int classNumber)
+            : base(name)
         {
-            _classNumber = classNumber;
+            ClassNumber = classNumber;
         }
 
-        ////Properties
-        public int ClassNumber
-        {
-            get { return _classNumber; }
-            set { _classNumber = value; }
-        }
+        public int ClassNumber { get; private set; }
     }
 }

@@ -2,20 +2,11 @@
 {
     public abstract class People
     {
-        ////Fields
-        private string _name;
-
-        ////Contructor
         protected People(string name)
         {
-            _name = name;
+            Name = name;
         }
 
-        ////Properties
-        public string Name
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
+        public string Name { get; private set; }
     }
 }
