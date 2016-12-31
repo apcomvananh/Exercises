@@ -4,13 +4,9 @@ namespace Exercise4
 {
     public class Tomcat : Cat
     {
-        public Tomcat(string name, int age) : base(name, age, "Male")
+        public Tomcat(string name, int age) : base(name, age, Sex.Male)
         {
-        }
-
-        public override void ProduceSound()
-        {
-            Console.WriteLine("{0}: Tomcat sound", Name);
+            Sound = AnimalSound.Tomcat;
         }
     }
 }

@@ -2,13 +2,11 @@
 {
     public class MortgateAccount : Account
     {
-        ////Contructor
         public MortgateAccount(Customer customer, decimal balance, decimal interestRate)
             : base(customer, balance, interestRate)
         {
         }
 
-        ////Override CalculateInterestAmount method
         public override decimal CalculateInterestAmount(int numberOfMonths)
         {
             if (Customer.CustomerType == CustomerType.Companies)

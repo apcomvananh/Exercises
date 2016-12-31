@@ -6,41 +6,22 @@ namespace Exercise4
     {
         private static void Main()
         {
-            var animals = GetAnimals();
-            Console.WriteLine("Average age of animals is: {0}", CalculateAverageAge(animals));
-            foreach (var animal in animals)
-            {
-                animal.ProduceSound();
-            }
+            Dog[] dogs = new Dog[] { new Dog("Johnny", 5, Sex.Male), new Dog("Pencho", 4, Sex.Male), new Dog("Ivan", 3, Sex.Male) };
+            Frog[] frogs = new Frog[] { new Frog("johnny", 5, Sex.Male), new Frog("boris", 7, Sex.Male), new Frog("galina", 3, Sex.Male) };
+            Cat[] cats = new Cat[] { new Cat("kika", 1, Sex.Female), new Cat("Boris", 2, Sex.Male), new Cat("Tiger", 3, Sex.Male) };
+            Kitten[] kittens = new Kitten[] { new Kitten("mimi", 3), new Kitten("krisi", 1), new Kitten("penka", 6) };
+            Tomcat[] tomcats = new Tomcat[] { new Tomcat("pesho", 3), new Tomcat("boiko", 1), new Tomcat("borko", 6) };
+
+            Console.WriteLine("Average age of dogs is {0} years", Animal.CalculateAverageAge(dogs));
+            Console.WriteLine("Average age of frogs is {0} years", Animal.CalculateAverageAge(frogs));
+            Console.WriteLine("Average age of cats is {0} years", Animal.CalculateAverageAge(cats));
+            Console.WriteLine("Average age of kittens is {0} years", Animal.CalculateAverageAge(kittens));
+            Console.WriteLine("Average age of tomcats is {0} years", Animal.CalculateAverageAge(tomcats));
+
+            var tom = new Tomcat("Tom", 4);
+            Console.WriteLine("{0} is {1}", tom.Name, Animal.IdentifyBySound(tom.Sound));
 
             Console.ReadLine();
-        }
-
-        private static double CalculateAverageAge(Animal[] animals)
-        {
-            double sumOfAge = 0;
-            foreach (var animal in animals)
-            {
-                sumOfAge += animal.Age;
-            }
-
-            return sumOfAge / animals.Length;
-        }
-
-        private static Animal[] GetAnimals()
-        {
-            Animal[] animals = new Animal[10];
-            animals[0] = new Dog("Hukki", 2, "Male");
-            animals[1] = new Cat("Doremon", 1, "Male");
-            animals[2] = new Cat("Doremi", 1, "Male");
-            animals[3] = new Kitten("Aladin", 3);
-            animals[4] = new Frog("Blue", 2, "Male");
-            animals[5] = new Tomcat("Pen", 4);
-            animals[6] = new Dog("Drinki", 5, "Male");
-            animals[7] = new Kitten("Kitty", 2);
-            animals[8] = new Frog("Green", 2, "Female");
-            animals[9] = new Dog("Jeny", 2, "Male");
-            return animals;
         }
     }
 }

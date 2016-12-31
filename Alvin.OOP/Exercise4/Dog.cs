@@ -4,13 +4,8 @@ namespace Exercise4
 {
     public class Dog : Animal
     {
-        public Dog(string name, int age, string sex) : base(name, age, sex)
+        public Dog(string name, int age, Sex sex) : base(name, age, sex, AnimalSound.Dog)
         {
-        }
-
-        public override void ProduceSound()
-        {
-            Console.WriteLine("{0}: Dog sound", Name);
         }
     }
 }
