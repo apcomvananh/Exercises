@@ -17,7 +17,7 @@
 
     public abstract class Animal
     {
-        public Animal(string name, int age, Sex sex, AnimalSound sound)
+        protected Animal(string name, int age, Sex sex, AnimalSound sound)
         {
             Name = name;
             Age = age;
