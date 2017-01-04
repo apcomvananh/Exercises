@@ -1,0 +1,25 @@
+body{
+	font: 13px Arial, Segoe UI, Tahoma;
+	color: white;
+	background-color: #76acfc;
+}
+h1{
+	font-size: 24px;
+}
+
+.main-wrapper{
+	max-width: 960px;
+	margin: auto;
+}
+
+.title{
+	text-align: center;
+}
+
+.col {
+	display: inline-block;
+	padding: 20px 0;
+	margin-right: -5px;
+	vertical-align: top;
+	width: 50%;
+}
