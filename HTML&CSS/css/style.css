@@ -8,21 +8,18 @@
 }
 
 body{
-	font: 13px/1.5 Arial, "Segoe UI", Tahoma;
+	font: normal 13px/1.5 Arial, 'Segoe UI', Tahoma;
 	font-weight: 400;
 	line-height: 25px;
 	color: #fff;
 	background-color: #76acfc;
 }
-h1{
-	font-size: 24px;
-}
 
-.page-title{
-	text-align: center;
-}
-
-input[type="text"], textarea{
+/********************************************************/
+/*                        Input Styles                  */
+/********************************************************/
+input[type="text"], 
+textarea{
 	display: block;
 	width: 100%;
 	padding: 0;
@@ -36,7 +33,6 @@ input[type="text"], textarea{
 }
 
 input[type="submit"]{
-	display: inline-block;
 	height: 40px;
 	width: 120px;
 	background-color: #64ce83;
@@ -46,36 +42,58 @@ input[type="submit"]{
 	float: right;
 	color: #fff;
 }
+
+/********************************************************/
+/*                        Page Title                    */
+/********************************************************/
+.page-title h1{
+	font-size: 24px;
+}
+
+.page-title{
+	text-align: center;
+}
+
+/********************************************************/
+/*                        Contact Info                  */
+/********************************************************/
+#contact div{
+	padding: 0;
+}
+
 .contact-info{
 	vertical-align: baseline;
 	margin: 0;
 	display: inline-block;
 	text-decoration: none;
 }
+
 .contact-info .phone-number{
-	background-position: 4px -3px;
+	background-position: -7px -3px;
 }
+
 .contact-info .email{
-	background-position: -27px -3px;
+	background-position: -35px -3px;
 }
 
 .contact-info .address{
-	background-position: -54px -3px;
+	background-position: -67px -3px;
 }
+
 .contact-info span{
 	background: url(../images/sprites.png) no-repeat top left;
 	display: inline-block;
 	height:18px;
-	width:25px;
+	width:15px;
 }
-.contact-info a:link, .contact-info a:visited{
+
+.contact-info a:link, 
+.contact-info a:visited{
 	text-decoration:none;
 	color: #fff;
 }
+
 #message{
 	height: 150px;
 }
 
-#contact div{
-	padding: 0;
-}
