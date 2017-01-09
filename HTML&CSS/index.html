@@ -9,24 +9,23 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<div class="grid-container">
-		<div class="grid-12 page-title">
+	<div class="grid-container page-title">
+		<div class="grid-12">
 			<h1>Get In Touch</h1>
 			<p>Just an example description for this section</p>
 		</div>
 	</div>
-	<div class="grid-container">
-		<div class="grid-6" style="margin-top: -20px;">
-			<p>Nam ultricies aliquam inperdiet. Pellentesque massa dui, varius non sodales quis, placerat ullamcorper nis!. Donec pulvinar, arcu vel rhoncus commondo, neque lectus blandit elit, vel laculis odo lectus sit amet metus.</p>
+	<div class="grid-container main-content">
+		<div class="grid-6 ">
+			<p class="description">Nam ultricies aliquam inperdiet. Pellentesque massa dui, varius non sodales quis, placerat ullamcorper nis!. Donec pulvinar, arcu vel rhoncus commondo, neque lectus blandit elit, vel laculis odo lectus sit amet metus.</p>
 			<br>
 			<div>
-				<div class="contact-info" style="padding-right: 25px;">
+				<div class="contact-info padding-right25">
 					<span class="phone-number"></span>&nbsp;<a href="callto:+10803501688">1 (080) 350-1688</a>
 				</div>
 				<div class="contact-info">
-					<span class="email"></span>&nbsp;<a style="text-decoration: underline;" href="mailto:support@yoursite.com">support@yoursite.com</a>
+					<span class="email"></span>&nbsp;<a class="email-link" href="mailto:support@yoursite.com">support@yoursite.com</a>
 				</div>
-				
 			</div>
 			<div class="contact-info">
 				<span class="address"></span>&nbsp;<a href="#">1600 Amphitheatre Parkway, Mountain View, CA 94043</a>
@@ -36,19 +35,22 @@
 			<form id="contact">
 				<div class="grid-container">
 					<div class="grid-5">
-						<input type="text" id="name" name="name" placeholder="Your Name">
-						<input type="text" id="email" name="email" placeholder="Your Email">
-						<input type="text" id="phone" name="phone" placeholder="Phone Number">
+						<input type="text" placeholder="Your Name">
+						<input type="text" placeholder="Your Email">
+						<input type="text" id="phone" placeholder="Phone Number">
 					</div>
-					<div class="grid-7">
-						<textarea id="message" name="message" placeholder="Your Message"></textarea>
+					<div class="grid-7 message-container">
+						<textarea id="message" placeholder="Your Message"></textarea>
 					</div>
-					<input type="submit" value="Send Email">
 				</div>
+				<div class="grid-container">
+					<div class="grid-12"><input class="btn-submit" type="submit" value="Send Email"></div>
+				</div>
+				
 			</form>
 		</div>
 	</div>
-	<div class="grid-container">
+	<div class="grid-container map">
 		<div class="grid-12">
 			<img src="images/map.png" alt="Map">
 		</div>

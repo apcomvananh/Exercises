@@ -1,99 +1,133 @@
-
 /********************************************************/
 /*                        Page Styles                   */
 /********************************************************/
 * {
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-body{
-	font: normal 13px/1.5 Arial, 'Segoe UI', Tahoma;
-	font-weight: 400;
-	line-height: 25px;
-	color: #fff;
-	background-color: #76acfc;
+body {
+    font: normal 13px/1.5 Arial, 'Segoe UI', Tahoma;
+    font-weight: 400;
+    line-height: 25px;
+    color: #fff;
+    background-color: #76acfc;
+}
+
+.page-title h1 {
+    font-size: 24px;
+}
+
+.page-title {
+    text-align: center;
+}
+
+.page-title,
+.main-content,
+.map {
+    padding-top: 25px;
+}
+
+.padding-right25 {
+    padding-right: 25px;
 }
 
 /********************************************************/
 /*                        Input Styles                  */
 /********************************************************/
-input[type="text"], 
-textarea{
-	display: block;
-	width: 100%;
-	padding: 0;
-	border: none;
-	line-height: 38px;
-	border-radius: 4px;
-	box-shadow: none;
-	height: 42px;
-	text-indent: 10px;
-	margin: 0 0 12px;
+input[type="text"],
+textarea {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    line-height: 38px;
+    border-radius: 4px;
+    box-shadow: none;
+    height: 44px;
+    text-indent: 10px;
+    margin: 0 0 9px;
 }
 
-input[type="submit"]{
-	height: 40px;
-	width: 120px;
-	background-color: #64ce83;
-	border: 1px solid #3dc264;
-	border-radius: 4px;
-	text-align: center;
-	float: right;
-	color: #fff;
-}
-
-/********************************************************/
-/*                        Page Title                    */
-/********************************************************/
-.page-title h1{
-	font-size: 24px;
-}
-
-.page-title{
-	text-align: center;
+.btn-submit {
+    height: 40px;
+    background-color: #64ce83;
+    border: 1px solid #3dc264;
+    box-shadow: 0px 3px 5px #3dc264;
+    border-radius: 4px;
+    text-align: center;
+    color: #fff;
 }
 
 /********************************************************/
 /*                        Contact Info                  */
 /********************************************************/
-#contact div{
-	padding: 0;
+.contact-info {
+    display: inline-block;
 }
 
-.contact-info{
-	vertical-align: baseline;
-	margin: 0;
-	display: inline-block;
-	text-decoration: none;
+    .contact-info .phone-number {
+        background-position: -7px -3px;
+    }
+
+    .contact-info .email {
+        background-position: -35px -3px;
+    }
+
+    .contact-info .address {
+        background-position: -67px -3px;
+    }
+
+    .contact-info span {
+        background: url(../images/sprites.png) no-repeat top left;
+        display: inline-block;
+        height: 18px;
+        width: 15px;
+    }
+
+    .contact-info a:link,
+    .contact-info a:visited {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .email-link{
+        text-decoration: underline!important;
+    }
+
+.description {
+    margin: 0;
 }
 
-.contact-info .phone-number{
-	background-position: -7px -3px;
+#message {
+    height: 150px;
 }
 
-.contact-info .email{
-	background-position: -35px -3px;
+#phone {
+    margin-bottom: 0;
 }
 
-.contact-info .address{
-	background-position: -67px -3px;
+@media (min-width: 1px) and (max-width: 768px) {
+    .btn-submit {
+        width: 100%;
+    }
 }
 
-.contact-info span{
-	background: url(../images/sprites.png) no-repeat top left;
-	display: inline-block;
-	height:18px;
-	width:15px;
-}
+@media (min-width: 769px) {
+    .btn-submit {
+        width: 120px;
+        float: right;
+    }
 
-.contact-info a:link, 
-.contact-info a:visited{
-	text-decoration:none;
-	color: #fff;
-}
+    .message-container {
+        padding: 0 !important;
+    }
 
-#message{
-	height: 150px;
-}
+    .page-title {
+        padding-bottom: 25px;
+    }
 
+    .description {
+        max-width: 440px;
+    }
+}
