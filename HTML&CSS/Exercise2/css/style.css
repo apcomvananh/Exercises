@@ -1,2 +1,42 @@
+* {
+  box-sizing: border-box; }
+
 .body {
-  background: #fff; }
+  font: normal 18px/1.5 Tahoma;
+  background: #fff;
+  color: #4c4c4c; }
+
+.main-header {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  box-shadow: 0 3px 3px #cccccc; }
+  .main-header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+  .main-header input[type="button"] {
+    height: 45px;
+    width: 150px;
+    float: right;
+    background-color: #e73c50;
+    border: 1px solid #b5161e;
+    border-radius: 5px;
+    color: #fff; }
+  @media screen and (min-width: 769px) {
+    .main-header {
+      position: fixed;
+      top: 0;
+      width: 100%; } }
+
+.main-nav a {
+  font: normal bold 14px/1.5 Tahoma;
+  display: block;
+  text-align: center;
+  color: #737373;
+  text-decoration: none; }
+
+@media screen and (min-width: 769px) {
+  .main-nav {
+    text-align: center; }
+    .main-nav li {
+      display: inline-block; } }

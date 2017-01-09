@@ -1,0 +1,80 @@
+.grid-container {
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width: 931px) {
+        max-width: 930px;
+    }
+
+    @media screen and (min-width:769px) {
+        [class^="grid-"] {
+            float: left;
+            min-height: 1px;
+            padding-left: 10px;
+            padding-right: 10px;
+
+            &:first-child {
+                padding-left: 0;
+            }
+
+            &:last-child {
+                float: right;
+                padding-right: 0;
+            }
+        }
+
+        .grid-1 {
+            width: 8.33%;
+        }
+
+        .grid-2 {
+            width: 16.66%;
+        }
+
+        .grid-3 {
+            width: 25%;
+        }
+
+        .grid-4 {
+            width: 33.33%;
+        }
+
+        .grid-5 {
+            width: 41.66%;
+        }
+
+        .grid-6 {
+            width: 50%;
+        }
+
+        .grid-7 {
+            width: 58.33%;
+        }
+
+        .grid-8 {
+            width: 66.66%;
+        }
+
+        .grid-9 {
+            width: 75%;
+        }
+
+        .grid-10 {
+            width: 83.33%;
+        }
+
+        .grid-11 {
+            width: 91.66%;
+        }
+
+        .grid-12 {
+            width: 100%;
+        }
+
+        &:after {
+            content: " ";
+            display: table;
+            clear: both;
+        }
+    }
+}

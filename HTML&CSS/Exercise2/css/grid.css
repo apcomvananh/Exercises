@@ -1,0 +1,45 @@
+.grid-container {
+  margin-left: auto;
+  margin-right: auto; }
+  @media screen and (min-width: 931px) {
+    .grid-container {
+      max-width: 930px; } }
+  @media screen and (min-width: 769px) {
+    .grid-container [class^="grid-"] {
+      float: left;
+      min-height: 1px;
+      padding-left: 10px;
+      padding-right: 10px; }
+      .grid-container [class^="grid-"]:first-child {
+        padding-left: 0; }
+      .grid-container [class^="grid-"]:last-child {
+        float: right;
+        padding-right: 0; }
+    .grid-container .grid-1 {
+      width: 8.33%; }
+    .grid-container .grid-2 {
+      width: 16.66%; }
+    .grid-container .grid-3 {
+      width: 25%; }
+    .grid-container .grid-4 {
+      width: 33.33%; }
+    .grid-container .grid-5 {
+      width: 41.66%; }
+    .grid-container .grid-6 {
+      width: 50%; }
+    .grid-container .grid-7 {
+      width: 58.33%; }
+    .grid-container .grid-8 {
+      width: 66.66%; }
+    .grid-container .grid-9 {
+      width: 75%; }
+    .grid-container .grid-10 {
+      width: 83.33%; }
+    .grid-container .grid-11 {
+      width: 91.66%; }
+    .grid-container .grid-12 {
+      width: 100%; }
+    .grid-container:after {
+      content: " ";
+      display: table;
+      clear: both; } }
