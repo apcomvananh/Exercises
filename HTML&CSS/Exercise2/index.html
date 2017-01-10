@@ -3,9 +3,9 @@
 <head>
     <title>Exercise 2</title>
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/grid.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="stylesheets/normalize.css">
+    <link rel="stylesheet" href="stylesheets/grid.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
 </head>
 <body>
     <header class="main-header">
@@ -19,11 +19,41 @@
                 <li><a href="#">BLOG</a></li>
             </ul>
             <div class="grid-2">
-                <input type="button" value="Free Demo" />
+                <input type="submit" value="Free Demo" />
             </div>
         </div>
     </header>
-    <div class="main-content"></div>
-    <footer class="main-footer"></footer>
+    <div class="grid-container main-content">
+        <div class="grid-4 left-content">
+            <img class="post-image" src="images\icd.png" alt="icd">
+            <div class="post-body">
+                <div class="post-info">
+                    <p class="publish-date">Apr 1, 2014</p>
+                    <p class="author">Webinar</p>
+                </div>
+                <h4>Preaparing for ICD-10</h4>
+                <p class="post-summary">At the end of March, Congress passed legislation that deplays the mandatory transition to ICD-10 until October 1, 2015. With all the extra time, some of you might be eager to push the new</p> 
+                <a href="#">VIEW WEBINAR</a>
+            </div>
+        </div>
+        <div class="grid-8 right-content">
+            <h2>Featured Articles</h2>
+            <p>The Future is Bright for OT Jobs [Infographic]</p>
+            <p>ICD-10: Fact or Fiction</p>
+            <p>Translationg ICD-9 to ICD-10</p>
+            <p>Breaking News: Congress Deplays ICD-10 Implementation Until 2015</p>
+            <a href="#">READ THE BLOG</a>&nbsp<img src="images\learnmore.png" alt="learnmore">
+        </div>
+    </div>
+    <footer class="main-footer">
+        <div class="grid-container">
+            <div class="grid-6">
+                <p>Get exclusive content delivered right to your inbox</p>
+            </div>
+            <div class="grid-6">
+                <input type="text" placeholder="Email"><input type="submit" value="Go">
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
