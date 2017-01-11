@@ -17,7 +17,12 @@ body {
     margin: 0;
     padding: 0;
     list-style: none; }
-  .main-header input[type="submit"] {
+    .main-header ul a {
+      line-height: 25px; }
+      @media (min-width: 1px) and (max-width: 768px) {
+        .main-header ul a {
+          border: 1px solid #cccccc; } }
+  .main-header input[type="button"] {
     height: 45px;
     width: 150px;
     float: right;
@@ -26,6 +31,9 @@ body {
     box-shadow: 0 3px #b5161e;
     border-radius: 5px;
     color: #fff; }
+    @media (min-width: 1px) and (max-width: 768px) {
+      .main-header input[type="button"] {
+        width: 100%; } }
   @media (min-width: 769px) {
     .main-header {
       position: fixed;
@@ -38,6 +46,10 @@ body {
   text-align: center;
   color: #737373;
   text-decoration: none; }
+  .main-nav a .img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
 @media (min-width: 769px) {
   .main-nav {
     text-align: center; }
@@ -45,6 +57,7 @@ body {
       display: inline-block; } }
 
 .main-content {
+  font: inherit;
   padding-bottom: 50px; }
   .main-content .left-content {
     padding-right: 0; }
@@ -52,10 +65,13 @@ body {
       box-shadow: 0 4px #ffa933;
       width: 100%; }
     .main-content .left-content .post-body {
-      box-shadow: 0 3px #cccccc;
-      padding: 0 20px; }
+      min-height: 250px;
+      box-shadow: 0 3px #cccccc; }
+      @media (min-width: 769px) {
+        .main-content .left-content .post-body {
+          padding: 0 20px; } }
       .main-content .left-content .post-body .post-info {
-        font: normal 11px Tahoma;
+        font-size: 11px;
         color: #c98715;
         display: block; }
         .main-content .left-content .post-body .post-info p {
@@ -64,16 +80,17 @@ body {
         .main-content .left-content .post-body .post-info .author {
           float: right; }
       .main-content .left-content .post-body h4 {
-        font: normal bold 16px Tahoma;
+        font-size: 16px;
         color: #007299; }
       .main-content .left-content .post-body .post-summary {
-        font: normal 14px Tahoma;
-        color: #666666; }
+        font-size: 14px;
+        color: #666666;
+        padding-bottom: 10px; }
       .main-content .left-content .post-body a {
-        font: normal bold 12px Tahoma;
+        font-size: 12px;
+        font-weight: bold;
         color: #007299; }
   .main-content .right-content {
-    padding-left: 150px;
     font: inherit; }
     .main-content .right-content h2 {
       margin: 0;
@@ -89,14 +106,20 @@ body {
       font-weight: bold;
       color: #007299;
       text-decoration: none; }
+    @media (min-width: 769px) {
+      .main-content .right-content {
+        padding-left: 150px; } }
 
 .main-footer {
   font: inherit;
   font-size: 16px;
   color: #fff;
   background-color: #007299;
-  padding: 5px 0;
+  padding: 52.5px 0;
   text-align: center; }
+  .main-footer .grid-container {
+    margin-top: auto;
+    margin-bottom: auto; }
   @media (min-width: 769px) {
     .main-footer {
       min-height: 150px;
@@ -114,14 +137,15 @@ body {
           color: #fff;
           border: none; }
         .main-footer input[type="text"] {
-          width: 285px; }
-          .main-footer input[type="text"] ::-webkit-input-placeholder {
+          width: 285px;
+          text-indent: 20px; }
+          .main-footer input[type="text"]::-webkit-input-placeholder {
             color: #06a7e2; }
-          .main-footer input[type="text"] :-moz-placeholder {
+          .main-footer input[type="text"]:-moz-placeholder {
             color: #06a7e2; }
-          .main-footer input[type="text"] ::-moz-placeholder {
+          .main-footer input[type="text"]::-moz-placeholder {
             color: #06a7e2; }
-          .main-footer input[type="text"] :-ms-input-placeholder {
+          .main-footer input[type="text"]:-ms-input-placeholder {
             color: #06a7e2; } }
 
 /*# sourceMappingURL=style.css.map */

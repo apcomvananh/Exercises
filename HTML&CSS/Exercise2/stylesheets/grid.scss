@@ -2,8 +2,9 @@
     margin-left: auto;
     margin-right: auto;
 
-    @media screen and (min-width: 931px) {
-        max-width: 930px;
+    @media (min-width: 1px) and (max-width: 768px)
+    {
+        padding: 0 10px;
     }
 
     @media screen and (min-width:769px) {
@@ -76,5 +77,9 @@
             display: table;
             clear: both;
         }
+    }
+
+    @media screen and (min-width: 931px) {
+        max-width: 930px;
     }
 }
