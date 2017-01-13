@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  font: normal 17px/1.5 Arial;
+  color: #fff; }
+
+.main-header {
+  background: url(../images/banner.jpg) no-repeat center;
+  text-align: center; }
+
+.description {
+  border: 13px solid #fff;
+  background-color: #efc889; }
+  .description p {
+    font-size: 19px;
+    font-weight: bold; }
+  .description img {
+    border: 3px solid #fff;
+    border-radius: 50%;
+    bottom: 0;
+    margin-bottom: -60px; }
+
+.btn-contact {
+  width: 250px;
+  height: 58px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background: #efc889;
+  border: 3px solid #fff;
+  border-radius: 5px; }
+
+.button {
+  cursor: pointer; }
+  .button span {
+    background: url(../images/sprites.png) no-repeat top left;
+    display: inline-block;
+    height: 20px;
+    width: 30px;
+    margin-right: 10px; }
+  .button .icon-contact {
+    background-position: 5px 0px; }
+  .button .icon-submit {
+    background-position: -25px 0px; }
+
+.main-content {
+  background-color: #a5937b; }
+  .main-content h1 {
+    text-align: center;
+    margin: 0;
+    padding-top: 63px;
+    padding-bottom: 34px;
+    font-size: 44px;
+    font-weight: bold; }
+
+/*# sourceMappingURL=style.css.map */

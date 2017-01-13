@@ -1,0 +1,28 @@
+@mixin linearGradient($top, $bottom) {
+    background: $top; /* Old browsers */
+    background: -moz-linear-gradient(top, $top 0%, $bottom 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(100%,$top), color-stop(0%,$bottom)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, $top 100%,$bottom 0%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, $top 0%,$bottom 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, $top 0%,$bottom 100%); /* IE10+ */
+    background: linear-gradient(to bottom, $top 0%,$bottom 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
+@mixin placeholder-color($color) {
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+
+    &:-moz-placeholder {
+        color: $color;
+    }
+
+    &::-moz-placeholder {
+        color: $color;
+    }
+
+    &:-ms-input-placeholder {
+        color: $color;
+    }
+}

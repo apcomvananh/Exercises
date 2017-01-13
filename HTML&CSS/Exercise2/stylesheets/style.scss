@@ -1,9 +1,28 @@
+@import 'mixins';
+
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('../fonts/Proxima-Nova-Regular.otf');
+}
+
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('../fonts/Proxima-Nova-Bold.otf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('../fonts/Proxima-Nova-Light.otf');
+    font-weight: 300;
+}
+
 * {
     box-sizing: border-box;
 }
 
 body {
-    font: normal 18px/1.5 Tahoma;
+    font: normal 18px/1.5 'Proxima Nova';
     background: #fff;
     color: #4c4c4c;
 
@@ -16,8 +35,7 @@ body {
 /*                        Main Header                   */
 /********************************************************/
 .main-header {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 15px 0;
     box-shadow: 0 3px #cccccc;
     background-color: #fff;
 
@@ -102,22 +120,13 @@ body {
 /********************************************************/
 /*                        Main Content                  */
 /********************************************************/
-@mixin linearGradient($top, $bottom){
-    background: $top; /* Old browsers */
-    background: -moz-linear-gradient(top,  $top 0%, $bottom 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(100%,$top), color-stop(0%,$bottom)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  $top 100%,$bottom 0%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  $top 0%,$bottom 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  $top 0%,$bottom 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  $top 0%,$bottom 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
-}
 .main-content {
     font: inherit;
     padding-bottom: 50px;
 
     @media (min-width: 1px) and (max-width: 768px) {
         padding-top: 25px;
+        padding-bottom: 25px;
     }
     /********************************************************/
     /*                     Left content                     */
@@ -126,15 +135,15 @@ body {
         padding-right: 0;
 
         .post-image {
-            box-shadow: 0 4px #ffa933;
+            border-bottom: 4px solid #ffa933;
             width: 100%;
         }
 
         .post-body {
-            min-height: 250px;
-            box-shadow: 0 3px #cccccc;
+            border-bottom: 3px solid #cccccc;
 
             @media (min-width: 769px) {
+                min-height: 250px;
                 padding: 0 20px;
             }
 
@@ -154,24 +163,25 @@ body {
             }
 
             h4 {
+                margin: 0;
+                padding-top: 25px;
+                padding-bottom: 10px;
                 font-size: 16px;
+                font-weight: bold;
                 color: #007299;
+
+                @media (min-width: 769px) {
+                    font-size: 18px;
+                }
             }
 
             .post-summary {
                 font-size: 14px;
                 color: #666666;
                 padding-bottom: 10px;
-                z-index: -1;
-                .opacity{
-                    position: relative;
-                    width: 100%;
-                    background: #fff;
-                    opacity: 0.5;
-                    left: 0;
-                    bottom: 15px;
-                    height: 16px;;
-                    z-index: 1;
+
+                @media (min-width: 769px) {
+                    font-size: 16px;
                 }
             }
 
@@ -188,8 +198,7 @@ body {
     .right-content {
         font: inherit;
 
-        @media (min-width: 1px) and (max-width: 768px)
-        {
+        @media (min-width: 1px) and (max-width: 768px) {
             padding-top: 20px;
         }
 
@@ -201,6 +210,7 @@ body {
             margin: 0;
             padding-bottom: 20px;
             font-size: 24px;
+            font-weight: normal;
             color: #007299;
         }
 
@@ -216,28 +226,6 @@ body {
             color: #007299;
             text-decoration: none;
         }
-
-        
-    }
-}
-/********************************************************/
-/*                        Mixin                         */
-/********************************************************/
-@mixin placeholder-color($color) {
-    &::-webkit-input-placeholder {
-        color: $color;
-    }
-
-    &:-moz-placeholder {
-        color: $color;
-    }
-
-    &::-moz-placeholder {
-        color: $color;
-    }
-
-    &:-ms-input-placeholder {
-        color: $color;
     }
 }
 
@@ -256,7 +244,7 @@ body {
         margin-bottom: auto;
     }
 
-    @media (min-width: 1px) and (max-width: 768px){
+    @media (min-width: 1px) and (max-width: 768px) {
         padding: 25px 0;
     }
 
@@ -272,7 +260,9 @@ body {
     p {
         margin: auto 0;
         padding-bottom: 10px;
-        @media(min-width:769px){
+        font-weight: 300;
+
+        @media(min-width:769px) {
             padding-top: 10px;
         }
     }

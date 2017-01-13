@@ -57,36 +57,40 @@ body {
     border-top: 1px solid #fff;
     border-bottom: 1px solid #fff;
     text-align: center;
-    padding: 58px 0; }
-    .main-content .contact-info h3 {
-      font-size: 19px;
-      font-weight: bold;
-      margin-top: 0px;
-      margin-bottom: 26px; }
-    .main-content .contact-info p {
-      font-size: 17px;
-      margin: 0; }
-  @media (min-width: 769px) {
-    .main-content .contact-form .form-group {
-      padding-top: 33px;
-      padding-left: 22px;
-      padding-right: 22px; }
-      .main-content .contact-form .form-group:first-child {
-        padding-left: 0; }
-      .main-content .contact-form .form-group:last-child {
-        float: right;
-        padding-right: 0; } }
-  .main-content .contact-form .form-group label {
-    font-weight: bold; }
-  .main-content .contact-form .form-group input[type="text"] {
-    width: 100%;
-    border-radius: 5px;
-    height: 40px; }
-  .main-content .contact-form .form-group textarea {
-    width: 100%;
-    height: 304px;
-    border-radius: 5px;
-    resize: none; }
+    padding: 0; }
+    .main-content .contact-info [class^="grid-"] {
+      padding-top: 58px;
+      padding-bottom: 58px; }
+      .main-content .contact-info [class^="grid-"] h3 {
+        font-size: 19px;
+        font-weight: bold;
+        margin-top: 0px;
+        margin-bottom: 26px; }
+      .main-content .contact-info [class^="grid-"] p {
+        font-size: 17px;
+        margin: 0; }
+  .main-content .contact-form .form-group {
+    padding-top: 33px; }
+    @media (min-width: 769px) {
+      .main-content .contact-form .form-group {
+        padding-left: 22px;
+        padding-right: 22px; }
+        .main-content .contact-form .form-group:first-child {
+          padding-left: 0; }
+        .main-content .contact-form .form-group:last-child {
+          float: right;
+          padding-right: 0; } }
+    .main-content .contact-form .form-group label {
+      font-weight: bold; }
+    .main-content .contact-form .form-group input[type="text"] {
+      width: 100%;
+      border-radius: 5px;
+      height: 40px; }
+    .main-content .contact-form .form-group textarea {
+      width: 100%;
+      height: 304px;
+      border-radius: 5px;
+      resize: none; }
   .main-content .contact-form .btn {
     text-align: center;
     padding: 20px 0; }
@@ -100,15 +104,17 @@ body {
       border: 3px solid #fff;
       border-radius: 5px; }
 
-.button span {
-  background: url(../images/sprites.png) no-repeat top left;
-  display: inline-block;
-  height: 20px;
-  width: 30px;
-  margin-right: 10px; }
-.button .icon-contact {
-  background-position: 5px 0px; }
-.button .icon-submit {
-  background-position: -25px 0px; }
+.button {
+  cursor: pointer; }
+  .button span {
+    background: url(../images/sprites.png) no-repeat top left;
+    display: inline-block;
+    height: 20px;
+    width: 30px;
+    margin-right: 10px; }
+  .button .icon-contact {
+    background-position: 5px 0px; }
+  .button .icon-submit {
+    background-position: -25px 0px; }
 
 /*# sourceMappingURL=style.css.map */
