@@ -13,7 +13,7 @@ body {
     background: url(../images/banner.jpg) no-repeat center;
     text-align: center;
     padding-top: 107px;
-    height: 648px;
+    background-position-y: -190px;
 }
 
 .description {
@@ -157,7 +157,7 @@ body {
     }
 }
 
-@media(min-width: 1px) and (max-width: 320px) {
+@media(min-width: 1px) and (max-width: 375px) {
     .main-header {
         padding: 50px 20px;
     }
@@ -171,14 +171,19 @@ body {
     }
 }
 
-@media(min-width: 321px) and (max-width: 768px) {
+@media(min-width: 376px) and (max-width: 768px) {
     .main-header {
         padding-left: 60px;
         padding-right: 60px;
+        padding-bottom: 107px;
     }
 }
 
 @media(min-width:769px) {
+    .main-header {
+        height: 648px;
+    }
+
     .description {
         margin-left: auto;
         margin-right: auto;
