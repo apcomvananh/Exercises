@@ -5,7 +5,7 @@ $primary-color: #fff;
 }
 
 body {
-    font: normal 17px/1.5 Arial;
+    font: normal 17px/1.5 Arial, Helvetica, sans-serif;
     color: $primary-color;
 }
 
@@ -116,7 +116,7 @@ body {
         textarea {
             width: 100%;
             height: 304px;
-            border-radius: 5px;
+            border-radius: 10px;
             resize: none;
         }
     }
@@ -130,7 +130,7 @@ body {
             color: $primary-color;
             height: 63px;
             width: 250px;
-            background-color: inherit;
+            background-color: #a5937b;
             margin: 0 auto;
             border: 3px solid $primary-color;
             border-radius: 5px;
@@ -158,7 +158,7 @@ body {
     }
 }
 
-@media(min-width: 1px) and (max-width: 375px) {
+@media(min-width: 1px) and (max-width: 414px) {
     .main-header {
         padding: 50px 20px;
     }
@@ -172,7 +172,7 @@ body {
     }
 }
 
-@media(min-width: 376px) and (max-width: 768px) {
+@media(min-width: 415px) and (max-width: 768px) {
     .main-header {
         padding-left: 60px;
         padding-right: 60px;

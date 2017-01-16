@@ -2,18 +2,18 @@
 
 @font-face {
     font-family: 'Proxima Nova';
-    src: url('../fonts/Proxima-Nova-Regular.otf');
+    src: url('../fonts/Proxima-Nova-Regular.otf') format('opentype');
 }
 
 @font-face {
     font-family: 'Proxima Nova';
-    src: url('../fonts/Proxima-Nova-Bold.otf');
+    src: url('../fonts/Proxima-Nova-Bold.otf') format('opentype');
     font-weight: bold;
 }
 
 @font-face {
     font-family: 'Proxima Nova';
-    src: url('../fonts/Proxima-Nova-Light.otf');
+    src: url('../fonts/Proxima-Nova-Light.otf') format('opentype');
     font-weight: 300;
 }
 
