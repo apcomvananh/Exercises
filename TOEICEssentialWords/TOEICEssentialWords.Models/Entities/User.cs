@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TOEICEssentialWords.Models.Entities
 {
-    public class User
+    public class User : BaseEntity
     {
         public int Id { get; set; }
 

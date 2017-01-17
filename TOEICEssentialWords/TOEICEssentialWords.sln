@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TOEICEssentialWords.Data", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TOEICEssentialWords.Web", "TOEICEssentialWords.Web\TOEICEssentialWords.Web.csproj", "{4908282D-0B6B-43AE-956A-FF7C0168F67D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TOEICEssentialWords.Services", "TOEICEssentialWords.Services\TOEICEssentialWords.Services.csproj", "{DF9609E0-0913-4BA3-8662-17346807889D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4908282D-0B6B-43AE-956A-FF7C0168F67D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4908282D-0B6B-43AE-956A-FF7C0168F67D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4908282D-0B6B-43AE-956A-FF7C0168F67D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF9609E0-0913-4BA3-8662-17346807889D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF9609E0-0913-4BA3-8662-17346807889D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF9609E0-0913-4BA3-8662-17346807889D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF9609E0-0913-4BA3-8662-17346807889D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

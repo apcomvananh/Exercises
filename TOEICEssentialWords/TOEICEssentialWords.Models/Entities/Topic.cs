@@ -2,7 +2,7 @@
 
 namespace TOEICEssentialWords.Models.Entities
 {
-    public class Topic
+    public class Topic : BaseEntity
     {
         public int Id { get; set; }
 
