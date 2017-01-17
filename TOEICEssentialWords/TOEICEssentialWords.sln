@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TOEICEssentialWords.Models", "TOEICEssentialWords.Models\TOEICEssentialWords.Models.csproj", "{AEA4FA87-2182-46B2-8ED1-4AA35962273C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TOEICEssentialWords.Data", "TOEICEssentialWords.Data\TOEICEssentialWords.Data.csproj", "{72928EC8-73EA-462C-BDD7-435E728148A0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TOEICEssentialWords.Web", "TOEICEssentialWords.Web\TOEICEssentialWords.Web.csproj", "{4908282D-0B6B-43AE-956A-FF7C0168F67D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TOEICEssentialWords.Services", "TOEICEssentialWords.Services\TOEICEssentialWords.Services.csproj", "{DF9609E0-0913-4BA3-8662-17346807889D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TOEICEssentialWords.Model", "TOEICEssentialWords.Model\TOEICEssentialWords.Model.csproj", "{AEA4FA87-2182-46B2-8ED1-4AA35962273C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TOEICEssentialWords.Service", "TOEICEssentialWords.Service\TOEICEssentialWords.Service.csproj", "{F39F93B0-405A-4D77-8FE7-6C694B7A3FAF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AEA4FA87-2182-46B2-8ED1-4AA35962273C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AEA4FA87-2182-46B2-8ED1-4AA35962273C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AEA4FA87-2182-46B2-8ED1-4AA35962273C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AEA4FA87-2182-46B2-8ED1-4AA35962273C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{72928EC8-73EA-462C-BDD7-435E728148A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{72928EC8-73EA-462C-BDD7-435E728148A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72928EC8-73EA-462C-BDD7-435E728148A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -29,10 +25,14 @@ Global
 		{4908282D-0B6B-43AE-956A-FF7C0168F67D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4908282D-0B6B-43AE-956A-FF7C0168F67D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4908282D-0B6B-43AE-956A-FF7C0168F67D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DF9609E0-0913-4BA3-8662-17346807889D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DF9609E0-0913-4BA3-8662-17346807889D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DF9609E0-0913-4BA3-8662-17346807889D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DF9609E0-0913-4BA3-8662-17346807889D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEA4FA87-2182-46B2-8ED1-4AA35962273C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEA4FA87-2182-46B2-8ED1-4AA35962273C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEA4FA87-2182-46B2-8ED1-4AA35962273C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEA4FA87-2182-46B2-8ED1-4AA35962273C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F39F93B0-405A-4D77-8FE7-6C694B7A3FAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F39F93B0-405A-4D77-8FE7-6C694B7A3FAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F39F93B0-405A-4D77-8FE7-6C694B7A3FAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F39F93B0-405A-4D77-8FE7-6C694B7A3FAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

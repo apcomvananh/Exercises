@@ -1,12 +1,12 @@
 ﻿using System.Data.Entity;
-using TOEICEssentialWords.Models.Entities;
+using TOEICEssentialWords.Model.Entities;
 
 namespace TOEICEssentialWords.Data
 {
     public class EssentialWordsContext : DbContext
     {
         public EssentialWordsContext()
-            : base("")
+            : base("Name=TOEICEssentialWords")
         {
         }
 
