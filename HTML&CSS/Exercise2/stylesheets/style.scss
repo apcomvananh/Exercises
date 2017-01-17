@@ -1,4 +1,7 @@
 @import 'mixins';
+$primary-color: #fff;
+$secondary-color: #007299;
+$bottom-color: #cccccc;
 
 @font-face {
     font-family: 'Proxima Nova';
@@ -23,14 +26,14 @@
 
 body {
     font: normal 18px/1.5 'Proxima Nova';
-    background: #fff;
+    background: $primary-color;
     color: #4c4c4c;
 }
 
 .main-header {
     padding: 15px 0;
-    box-shadow: 0 3px #cccccc;
-    background-color: #fff;
+    box-shadow: 0 3px $bottom-color;
+    background-color: $primary-color;
 
     .main-nav {
         padding: 0;
@@ -42,7 +45,7 @@ body {
         border: 1px solid #b5161e;
         box-shadow: 0 3px #b5161e;
         border-radius: 5px;
-        color: #fff;
+        color: $primary-color;
         cursor: pointer;
     }
 }
@@ -77,7 +80,7 @@ body {
 }
 
 .post-body {
-    border-bottom: 3px solid #cccccc;
+    border-bottom: 3px solid $bottom-color;
 
     h4 {
         margin: 0;
@@ -85,7 +88,7 @@ body {
         padding-bottom: 10px;
         font-size: 16px;
         font-weight: bold;
-        color: #007299;
+        color: $secondary-color;
     }
 
     a {
@@ -124,7 +127,7 @@ body {
         padding-bottom: 20px;
         font-size: 24px;
         font-weight: normal;
-        color: #007299;
+        color: $secondary-color;
     }
 
     p {
@@ -136,7 +139,7 @@ body {
     a {
         font-size: 12px;
         font-weight: bold;
-        color: #007299;
+        color: $secondary-color;
         text-decoration: none;
     }
 }
@@ -144,8 +147,8 @@ body {
 .main-footer {
     font: inherit;
     font-size: 16px;
-    color: #fff;
-    background-color: #007299;
+    color: $primary-color;
+    background-color: $secondary-color;
     text-align: center;
 
     .grid-container {
@@ -168,14 +171,19 @@ body {
         &[type="submit"] {
             width: 75px;
             background-color: #06a7e2;
-            color: #fff;
+            color: $primary-color;
             border: none;
             cursor: pointer;
+            margin-left: -4px;
+            border-bottom: solid 3px #005b7a;
         }
 
         &[type="text"] {
             width: 285px;
             text-indent: 20px;
+            border: none;
+            border-bottom: solid 3px #005b7a;
+
             @include placeholder-color(#06a7e2);
         }
     }
@@ -200,13 +208,12 @@ body {
     }
 
     .main-nav {
-        a {
-            border: 1px solid #cccccc;
+        li {
+            border: 1px solid $bottom-color;
+            border-bottom: none;
 
-            .main-logo {
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
+            &:last-child {
+                border-bottom: 1px solid $bottom-color;
             }
         }
     }
@@ -257,6 +264,8 @@ body {
     }
 
     .main-content {
+        margin-bottom: 150px;
+
         .right-content {
             padding-left: 150px;
         }

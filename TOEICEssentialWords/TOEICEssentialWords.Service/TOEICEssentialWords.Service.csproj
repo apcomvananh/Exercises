@@ -40,7 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementations\BaseServiceImp.cs" />
+    <Compile Include="Interfaces\BaseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TOEICEssentialWords.Data\TOEICEssentialWords.Data.csproj">
+      <Project>{72928ec8-73ea-462c-bdd7-435e728148a0}</Project>
+      <Name>TOEICEssentialWords.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TOEICEssentialWords.Model\TOEICEssentialWords.Model.csproj">
+      <Project>{aea4fa87-2182-46b2-8ed1-4aa35962273c}</Project>
+      <Name>TOEICEssentialWords.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

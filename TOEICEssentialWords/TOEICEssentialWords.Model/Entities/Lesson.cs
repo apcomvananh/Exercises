@@ -14,6 +14,6 @@ namespace TOEICEssentialWords.Model.Entities
 
         public virtual Topic Topic { get; set; }
 
-        public virtual ICollection<Word> Entries { get; set; }
+        public virtual ICollection<Word> WordsToLearn { get; set; }
     }
 }

@@ -26,14 +26,6 @@ namespace TOEICEssentialWords.Data.Repositories
             return DataContext.Set<T>();
         }
 
-        public IQueryable<T> All
-        {
-            get
-            {
-                return GetAll();
-            }
-        }
-
         public IQueryable<T> AllIncluding(params Expression<Func<T, object>>[] includeProperties)
         {
             IQueryable<T> query = DataContext.Set<T>();

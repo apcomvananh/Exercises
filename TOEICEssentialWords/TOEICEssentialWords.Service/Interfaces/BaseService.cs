@@ -3,9 +3,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using TOEICEssentialWords.Model.Entities;
 
-namespace TOEICEssentialWords.Data.Repositories
+namespace TOEICEssentialWords.Service.Interfaces
 {
-    public interface BaseRepository<T> where T : class, BaseEntity, new()
+    public interface BaseService<T> where T : BaseEntity
     {
         IQueryable<T> GetAll();
 
