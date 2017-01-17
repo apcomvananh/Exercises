@@ -161,6 +161,11 @@ body {
         padding-bottom: 10px;
         font-weight: 300;
     }
+}
+
+.delivery-form {
+    margin: 0 auto;
+    max-width: 360px;
 
     input {
         font: inherit;
@@ -174,7 +179,7 @@ body {
             color: $primary-color;
             border: none;
             cursor: pointer;
-            margin-left: -4px;
+            margin-left: -5px;
             border-bottom: solid 3px #005b7a;
         }
 
@@ -233,6 +238,18 @@ body {
 
     .main-footer {
         padding: 25px 0;
+    }
+
+    .delivery-form {
+        input {
+            &[type="text"] {
+                width: 75%;
+            }
+
+            &[type="input"] {
+                width: 20%;
+            }
+        }
     }
 }
 
