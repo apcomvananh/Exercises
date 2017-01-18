@@ -10,6 +10,6 @@ namespace TOEICEssentialWords.Model.Entities
 
         public int Index { get; set; }
 
-        public virtual ICollection<Lesson> Lesson { get; set; }
+        public virtual ICollection<Lesson> Lessons { get; set; }
     }
 }

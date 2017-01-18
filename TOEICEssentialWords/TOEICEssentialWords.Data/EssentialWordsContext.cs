@@ -1,4 +1,6 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using TOEICEssentialWords.Data.Mappings;
 using TOEICEssentialWords.Model.Entities;
 
 namespace TOEICEssentialWords.Data
@@ -19,5 +21,16 @@ namespace TOEICEssentialWords.Data
         public IDbSet<Lesson> Lessons { get; set; }
 
         public IDbSet<Word> Words { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            modelBuilder.Configurations.Add(new TopicMapping());
+            modelBuilder.Configurations.Add(new LessonMapping());
+            modelBuilder.Configurations.Add(new WordMapping());
+            modelBuilder.Configurations.Add(new UserMapping());
+            modelBuilder.Configurations.Add(new RoleMapping());
+        }
     }
 }

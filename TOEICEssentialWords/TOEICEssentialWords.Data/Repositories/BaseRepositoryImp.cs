@@ -21,6 +21,11 @@ namespace TOEICEssentialWords.Data.Repositories
             }
         }
 
+        public BaseRepositoryImp(DataFactory dataFactory)
+        {
+            DataFactory = dataFactory;
+        }
+
         public IQueryable<T> GetAll()
         {
             return DataContext.Set<T>();
