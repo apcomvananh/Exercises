@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using TOEICEssentialWords.Model.Entities;
 using TOEICEssentialWords.Service.Interfaces;
+using TOEICEssentialWords.Web.ViewModels;
 
 namespace TOEICEssentialWords.Web.Controllers
 {
@@ -13,11 +14,14 @@ namespace TOEICEssentialWords.Web.Controllers
             _topicService = topicService;
         }
 
-        // GET: Topic
-        public ActionResult Index()
+        public PartialViewResult TopicMenu()
         {
-            var topics = _topicService.GetAll();
-            return View(topics);
+            var topics = _topicService.AllIncluding(t => t.Lessons);
+
+            return PartialView(new TopicViewModel
+            {
+                Topics = topics
+            });
         }
     }
 }

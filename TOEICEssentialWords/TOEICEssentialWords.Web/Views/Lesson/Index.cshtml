@@ -1,0 +1,16 @@
+﻿@using TOEICEssentialWords.Web.ViewModels
+@model LessonViewModel
+
+@{
+    ViewBag.Title = Model.Lesson.Name;
+}
+
+<div class="row">
+    <div class="content-wrapper">
+        <div class="content-header">
+            <p class="definition-title">
+                Lesson <strong>@Model.Lesson.Name</strong> from 600 Essential words for the TOEIC.
+            </p>
+        </div>
+    </div>
+</div>

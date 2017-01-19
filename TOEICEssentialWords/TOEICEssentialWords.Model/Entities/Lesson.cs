@@ -12,6 +12,11 @@ namespace TOEICEssentialWords.Model.Entities
 
         public int TopicId { get; set; }
 
+        public string DisplayName
+        {
+            get { return string.Format("{0}. {1}", LessonNumber, Name); }
+        }
+
         public virtual Topic Topic { get; set; }
 
         public virtual ICollection<Word> WordsToLearn { get; set; }
