@@ -1,0 +1,46 @@
+﻿@using TOEICEssentialWords.Web.ViewModels
+@model WordViewModel
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<div class="header-container">
+    <div class="row content-header">
+        <div class="col-lg-12">
+            <span>&nbsp;</span>
+            <h2>@Model.Name</h2>
+            <span>&nbsp;</span>
+            <span class="pos">@Model.WordType</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 pronounciation">
+            <div class="pro BrE">
+                <span class="prefix">BrE</span>
+                <span>@Model.BrEPronoun</span>
+            </div>
+            <span>;</span>
+            <div class="pro NAmE">
+                <span class="prefix">NAmE</span>
+                <span>@Model.NAmEPronoun</span>
+            </div>
+        </div>
+        <div class="col-lg-6 wordlist">
+            <button><i class="glyphicon glyphicon-star"></i><span>&nbsp;</span> Add to wordlist</button>
+        </div>
+    </div>
+</div>
+<div class="row content-body">
+    <div class="col-lg-12">
+        <ul>
+            @for (int i = 1; i <= Model.Definitons.Count(); i++)
+            {
+                <li>
+                    <span class="def">@Model.Definitons[i - 1].Name</span>
+                    <span class="example">@Model.Definitons[i - 1].Example</span>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

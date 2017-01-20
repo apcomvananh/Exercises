@@ -56,14 +56,15 @@
     <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="Infrastructure\UnitOfWorkImp.cs" />
     <Compile Include="Mappings\BaseEntityMapping.cs" />
+    <Compile Include="Mappings\DefinitionMapping.cs" />
     <Compile Include="Mappings\LessonMapping.cs" />
     <Compile Include="Mappings\RoleMapping.cs" />
     <Compile Include="Mappings\TopicMapping.cs" />
     <Compile Include="Mappings\UserMapping.cs" />
     <Compile Include="Mappings\WordMapping.cs" />
-    <Compile Include="Migrations\201701180919168_initial_migration.cs" />
-    <Compile Include="Migrations\201701180919168_initial_migration.Designer.cs">
-      <DependentUpon>201701180919168_initial_migration.cs</DependentUpon>
+    <Compile Include="Migrations\201701200316566_initial_migration.cs" />
+    <Compile Include="Migrations\201701200316566_initial_migration.Designer.cs">
+      <DependentUpon>201701200316566_initial_migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,8 +82,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201701180919168_initial_migration.resx">
-      <DependentUpon>201701180919168_initial_migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201701200316566_initial_migration.resx">
+      <DependentUpon>201701200316566_initial_migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

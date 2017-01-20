@@ -13,7 +13,7 @@ namespace TOEICEssentialWords.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201701180919168_initial_migration"; }
+            get { return "201701200316566_initial_migration"; }
         }
         
         string IMigrationMetadata.Source

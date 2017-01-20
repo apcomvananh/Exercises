@@ -8,8 +8,8 @@ namespace TOEICEssentialWords.Data.Mappings
         {
             Property(w => w.Name);
             Property(w => w.WordType);
-            Property(w => w.Mean);
-            Property(w => w.Examples);
+            Property(w => w.BrEPronoun);
+            Property(w => w.NAmEPronoun);
             Property(w => w.LessonId);
 
             ToTable("Word");

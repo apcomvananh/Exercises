@@ -12,12 +12,24 @@
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".topic-menu">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
+                </div>
+                <div class="navbar-form navbar-center searchfield">
+                    @using (Html.BeginForm("SearchWord", "Word", FormMethod.Post))
+                    {
+                        <div class="input-group add-on">
+                            @Html.TextBox("searchWord", null, new { @class = "form-control", placeholder = "Search English" })
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+                            </div>
+                        </div>
+
+                    }
                 </div>
                 <ul class="nav navbar-right top-nav">
                     <li><a href="#">Register</a></li>
@@ -30,31 +42,14 @@
     <main>
         <div id="page_wrapper">
             <div class="container">
-                <section id="section_searchword">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <form>
-                                <div class="input-group searchfield">
-                                    <input type="text" class="form-control" placeholder="Search English" value="" />
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button">
-                                            <i class="glyphicon glyphicon-search"></i>
-                                        </button>
-                                    </span>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </section>
                 <section id="section_body">
-                    @RenderBody()
+                    <div class="content-wrapper">
+                        @RenderBody()
+                    </div>
                 </section>
             </div>
         </div>
     </main>
-    <footer>
-        <p>&copy; @DateTime.Now.Year - Nexcel Solutions</p>
-    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

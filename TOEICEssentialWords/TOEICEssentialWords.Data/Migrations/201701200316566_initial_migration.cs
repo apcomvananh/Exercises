@@ -37,13 +37,26 @@ namespace TOEICEssentialWords.Data.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
                         WordType = c.Int(nullable: false),
-                        Mean = c.String(),
-                        Examples = c.String(),
+                        BrEPronoun = c.String(),
+                        NAmEPronoun = c.String(),
                         LessonId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Lesson", t => t.LessonId)
                 .Index(t => t.LessonId);
+            
+            CreateTable(
+                "dbo.Definition",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        Example = c.String(),
+                        WordId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Word", t => t.WordId, cascadeDelete: true)
+                .Index(t => t.WordId);
             
             CreateTable(
                 "dbo.Role",
@@ -88,14 +101,17 @@ namespace TOEICEssentialWords.Data.Migrations
             DropForeignKey("dbo.UserRole", "RoleId", "dbo.Role");
             DropForeignKey("dbo.UserRole", "UserId", "dbo.User");
             DropForeignKey("dbo.Word", "LessonId", "dbo.Lesson");
+            DropForeignKey("dbo.Definition", "WordId", "dbo.Word");
             DropForeignKey("dbo.Lesson", "TopicId", "dbo.Topic");
             DropIndex("dbo.UserRole", new[] { "RoleId" });
             DropIndex("dbo.UserRole", new[] { "UserId" });
+            DropIndex("dbo.Definition", new[] { "WordId" });
             DropIndex("dbo.Word", new[] { "LessonId" });
             DropIndex("dbo.Lesson", new[] { "TopicId" });
             DropTable("dbo.UserRole");
             DropTable("dbo.User");
             DropTable("dbo.Role");
+            DropTable("dbo.Definition");
             DropTable("dbo.Word");
             DropTable("dbo.Topic");
             DropTable("dbo.Lesson");

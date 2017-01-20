@@ -1,4 +1,5 @@
-﻿using TOEICEssentialWords.Model.Enums;
+﻿using System.Collections.Generic;
+using TOEICEssentialWords.Model.Enums;
 
 namespace TOEICEssentialWords.Model.Entities
 {
@@ -10,12 +11,14 @@ namespace TOEICEssentialWords.Model.Entities
 
         public WordType WordType { get; set; }
 
-        public string Mean { get; set; }
+        public string BrEPronoun { get; set; }
 
-        public string Examples { get; set; }
+        public string NAmEPronoun { get; set; }
 
         public int LessonId { get; set; }
 
         public virtual Lesson Lesson { get; set; }
+
+        public virtual ICollection<Definition> Definitions { get; set; }
     }
 }

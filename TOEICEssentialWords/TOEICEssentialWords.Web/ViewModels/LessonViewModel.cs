@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using TOEICEssentialWords.Model.Entities;
 
 namespace TOEICEssentialWords.Web.ViewModels
 {
     public class LessonViewModel
     {
-        public Lesson Lesson { get; set; }
+        public string Name { get; set; }
+        public string TopicName { get; set; }
+
         public IEnumerable<Word> WordsToLearn { get; set; }
+
+        public IEnumerable<Lesson> RelatedLessons { get; set; }
     }
 }

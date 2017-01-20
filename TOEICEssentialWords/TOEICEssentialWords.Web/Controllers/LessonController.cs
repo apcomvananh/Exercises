@@ -25,8 +25,9 @@ namespace TOEICEssentialWords.Web.Controllers
         {
             var lesson = _lessonService.GetSingle(id);
             var wordsToLearn = _wordService.FindBy(w => w.LessonId.Equals(id));
+            var relatedLessons = _lessonService.FindBy(l => l.TopicId == lesson.TopicId && l.Id != lesson.Id);
 
-            return View(new LessonViewModel { Lesson = lesson, WordsToLearn = wordsToLearn });
+            return View(new LessonViewModel { Name = lesson.Name, TopicName = lesson.Topic.Name, WordsToLearn = wordsToLearn, RelatedLessons = relatedLessons });
         }
     }
 }
