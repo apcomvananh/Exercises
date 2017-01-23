@@ -24,6 +24,10 @@ $bottom-color: #cccccc;
     box-sizing: border-box;
 }
 
+input {
+    font: inherit;
+}
+
 body {
     font: normal 18px/1.5 'Proxima Nova';
     background: $primary-color;
@@ -31,23 +35,22 @@ body {
 }
 
 .main-header {
-    padding: 15px 0;
+    padding: 10px 0;
     box-shadow: 0 3px $bottom-color;
     background-color: $primary-color;
 
     .main-nav {
         padding: 0;
     }
+}
 
-    input[type="button"] {
-        height: 45px;
-        background-color: #e73c50;
-        border: 1px solid #b5161e;
-        box-shadow: 0 3px #b5161e;
-        border-radius: 5px;
-        color: $primary-color;
-        cursor: pointer;
-    }
+.demo-button {
+    @include border-radius(5px);
+    @include border-bottom(3px, #b5161e);
+    height: 45px;
+    background-color: #e73c50;
+    color: $primary-color;
+    cursor: pointer;
 }
 
 .main-nav {
@@ -63,6 +66,7 @@ body {
         text-align: center;
         color: #737373;
         text-decoration: none;
+        text-transform: uppercase;
     }
 }
 
@@ -94,7 +98,7 @@ body {
     a {
         font-size: 12px;
         font-weight: bold;
-        color: #007299;
+        color: $secondary-color;
     }
 }
 
@@ -144,17 +148,18 @@ body {
     }
 }
 
+.learnmore-icon {
+    background: url(../images/learnmore.png) no-repeat 0 2px;
+    margin-left: 10px;
+    padding: 3px 0 3px 15px;
+}
+
 .main-footer {
     font: inherit;
     font-size: 16px;
     color: $primary-color;
     background-color: $secondary-color;
     text-align: center;
-
-    .grid-container {
-        margin-top: auto;
-        margin-bottom: auto;
-    }
 
     p {
         margin: auto 0;
@@ -174,22 +179,19 @@ body {
         vertical-align: middle;
 
         &[type="submit"] {
+            @include border-bottom(3px, #005b7a);
             width: 75px;
             background-color: #06a7e2;
             color: $primary-color;
-            border: none;
             cursor: pointer;
             margin-left: -5px;
-            border-bottom: solid 3px #005b7a;
         }
 
         &[type="text"] {
+            @include border-bottom(3px, #005b7a);
+            @include placeholder-color(#06a7e2);
             width: 285px;
             text-indent: 20px;
-            border: none;
-            border-bottom: solid 3px #005b7a;
-
-            @include placeholder-color(#06a7e2);
         }
     }
 }
@@ -234,6 +236,10 @@ body {
 
     .right-content {
         padding-top: 20px;
+
+        p {
+            padding-bottom: 15px;
+        }
     }
 
     .main-footer {
@@ -262,11 +268,11 @@ body {
         position: fixed;
         top: 0;
         width: 100%;
+    }
 
-        input[type="button"] {
-            width: 150px;
-            float: right;
-        }
+    .demo-button {
+        width: 150px;
+        float: right;
     }
 
     .main-nav {
@@ -305,7 +311,11 @@ body {
         position: fixed;
         bottom: 0;
         width: 100%;
-        padding: 52.5px 0;
+        height: 150px;
+
+        .grid-container {
+            @include vertical-align();
+        }
 
         p {
             padding-top: 10px;

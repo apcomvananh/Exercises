@@ -20,7 +20,7 @@
                     </button>
                 </div>
                 <div class="navbar-form navbar-center searchfield">
-                    @using (Html.BeginForm("SearchWord", "Word", FormMethod.Post))
+                    @using (Html.BeginForm("SearchWord", "Word", FormMethod.Get))
                     {
                         <div class="input-group add-on">
                             @Html.TextBox("searchWord", null, new { @class = "form-control", placeholder = "Search English" })

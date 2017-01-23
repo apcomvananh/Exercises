@@ -1,0 +1,128 @@
+$primary-color: #fff;
+$background-color: #76acfc;
+$primary-font: normal 13px/25px Arial, 'Segoe UI', Tahoma;
+
+body{
+    font: $primary-font;
+    color: $primary-color;
+    background-color: $background-color;
+}
+
+.page-wrapper{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 990px;
+}
+
+.page-title,.main-content,.map{
+    padding-bottom: 25px;
+}
+
+.page-title{
+    text-align: center;
+    padding-top: 25px;
+    h1{
+        font-size: 24px;
+    }
+}
+
+.map img{
+width: 100%;
+}
+
+.description{
+    margin-bottom: 25px;
+}
+
+.padding-right25 {
+    padding-right: 25px;
+}
+
+.contact-info{
+    display: inline-block;
+
+    span{
+        background: url(../images/sprites.png) no-repeat top left;
+        display: inline-block;
+        height: 18px;
+        width: 15px;
+    }
+
+    .phone-number{
+        background-position: -7px -3px;
+    }
+
+    .email{
+        background-position: -35px -3px;
+    }
+
+    .address{
+        background-position: -67px -3px;
+    }
+
+    a{
+        text-decoration: none;
+        color: #fff;
+        
+    }
+
+    .email-link{
+        text-decoration: underline;
+    }
+}
+
+.contact-form{
+    .form-group{
+        margin-bottom: 9px;
+
+        input{
+            padding: 11px;
+            height: auto;
+            color: #a6a6a6;
+        }
+
+        textarea{
+            height: 150px;
+            resize: none;
+            color: #a6a6a6;
+        }
+
+    }
+
+    
+}
+
+.btn-submit{
+    height: 40px;
+    background-color: #64ce83;
+    border: 1px solid #3dc264;
+    box-shadow: 0px 3px 5px #3dc264;
+    border-radius: 5px;
+}
+
+@media(min-width: 1px) and (max-width:768px){
+    .btn-submit{
+        width: 100%;
+    }
+}
+
+@media(min-width:769px){
+    .btn-submit{
+        width: 120px;
+        float: right;
+    }
+
+    .contact-form{
+        .col-info{
+            padding-left: 0;
+        }
+
+        .col-message{
+            padding-left: 0;
+        }
+    }
+
+    .description{
+        max-width: 440px;
+    }
+}

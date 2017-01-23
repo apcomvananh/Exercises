@@ -1,3 +1,4 @@
+$font-stack: Arial, Helvetica, sans-serif;
 $primary-color: #fff;
 $header-background-color: #efc889;
 $content-background-color: #a5937b;
@@ -7,8 +8,12 @@ $content-background-color: #a5937b;
 }
 
 body {
-    font: normal 17px/1.5 Arial, Helvetica, sans-serif;
+    font: normal 17px/1.5 $font-stack;
     color: $primary-color;
+}
+
+input {
+    font: inherit;
 }
 
 .main-header {
@@ -53,8 +58,6 @@ body {
     font-weight: bold;
     color: $primary-color;
     background: $header-background-color;
-    border: 3px solid $primary-color;
-    border-radius: 5px;
 }
 
 .main-content {
@@ -66,6 +69,7 @@ body {
         text-align: center;
         font-size: 44px;
         font-weight: bold;
+        text-transform: uppercase;
     }
 }
 
@@ -77,7 +81,7 @@ body {
     padding-bottom: 35px;
 
     [class^="grid-"] {
-        padding: 30px 0;
+        padding: 15px 0;
 
         &:first-child {
             padding-top: 0;
@@ -92,6 +96,7 @@ body {
             font-weight: bold;
             margin-top: 0px;
             margin-bottom: 15px;
+            text-transform: uppercase;
         }
 
         p {
@@ -111,44 +116,42 @@ body {
 
         input[type="text"] {
             width: 100%;
-            border-radius: 10px;
+            border-radius: 5px;
             height: 50px;
+            text-indent: 15px;
         }
 
         textarea {
             width: 100%;
             height: 304px;
-            border-radius: 10px;
+            border-radius: 5px;
             resize: none;
         }
     }
 
     .btn {
         text-align: center;
-        padding: 20px 0;
+        padding: 20px 10px;
 
         .btn-submit {
             font-size: 13px;
             color: $primary-color;
             height: 63px;
-            width: 250px;
             background-color: $content-background-color;
             margin: 0 auto;
-            border: 3px solid $primary-color;
-            border-radius: 5px;
         }
     }
 }
 
 .button {
+    text-transform: uppercase;
     cursor: pointer;
+    border: 3px solid $primary-color;
+    border-radius: 5px;
 
     span {
-        background: url(../images/sprites.png) no-repeat top left;
-        display: inline-block;
-        height: 20px;
-        width: 30px;
-        margin-right: 10px;
+        background: url(../images/sprites.png) no-repeat top center;
+        padding: 5px 0 0 30px;
     }
 
     .icon-contact {
@@ -172,6 +175,10 @@ body {
             line-height: 1.8;
         }
     }
+
+    .btn-submit {
+        width: 100%;
+    }
 }
 
 @media(min-width: 415px) and (max-width: 768px) {
@@ -179,6 +186,10 @@ body {
         padding-left: 60px;
         padding-right: 60px;
         padding-bottom: 107px;
+    }
+
+    .btn-submit {
+        width: 100%;
     }
 }
 
@@ -209,6 +220,8 @@ body {
 
         [class^="grid-"] {
             padding: 0;
+            padding-left: 10px;
+            padding-right: 10px;
 
             h3 {
                 margin-bottom: 26px;
@@ -228,5 +241,9 @@ body {
             float: right;
             padding-right: 0;
         }
+    }
+
+    .btn-submit {
+        width: 250px;
     }
 }
