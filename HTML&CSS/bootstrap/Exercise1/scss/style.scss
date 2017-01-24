@@ -8,21 +8,16 @@ body{
     background-color: $background-color;
 }
 
-.page-wrapper{
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 990px;
-}
-
-.page-title,.main-content,.map{
+.main-content,.map{
     padding-bottom: 25px;
 }
 
 .page-title{
     text-align: center;
-    padding-top: 25px;
+    padding: 25px 0;
     h1{
         font-size: 24px;
+        font-weight: bold;
     }
 }
 
@@ -34,22 +29,32 @@ width: 100%;
     margin-bottom: 25px;
 }
 
-.padding-right25 {
-    padding-right: 25px;
+.padding-right35 {
+    padding-right: 35px;
+}
+
+.col-first{
+    margin-bottom: 25px;
+}
+
+.col-second{
+    margin-bottom: 25px;
+    margin-top: 10px;
 }
 
 .contact-info{
     display: inline-block;
+    margin: 5px 0;
 
     span{
-        background: url(../images/sprites.png) no-repeat top left;
-        display: inline-block;
-        height: 18px;
-        width: 15px;
+        background: url(../images/sprites.png) -20px 0 no-repeat;
+        height: 20px;
+        width: 20px;
+        float: left;
     }
 
     .phone-number{
-        background-position: -7px -3px;
+        background-position: -5px -3px;
     }
 
     .email{
@@ -57,7 +62,7 @@ width: 100%;
     }
 
     .address{
-        background-position: -67px -3px;
+        background-position: -65px -3px;
     }
 
     a{
@@ -86,7 +91,10 @@ width: 100%;
             resize: none;
             color: #a6a6a6;
         }
+    }
 
+    .col-message{
+        padding-bottom: 5px;
     }
 
     
@@ -98,18 +106,27 @@ width: 100%;
     border: 1px solid #3dc264;
     box-shadow: 0px 3px 5px #3dc264;
     border-radius: 5px;
+    float: right;
+    width: 120px;
 }
 
-@media(min-width: 1px) and (max-width:768px){
+@media(min-width: 1px) and (max-width: 414px){
     .btn-submit{
         width: 100%;
+    }
+
+    .description{
+        max-width: 345px;
     }
 }
 
 @media(min-width:769px){
+    .container{
+        max-width: 990px;
+    }
+
     .btn-submit{
         width: 120px;
-        float: right;
     }
 
     .contact-form{
@@ -121,7 +138,12 @@ width: 100%;
             padding-left: 0;
         }
     }
+}
 
+@media(min-width: 992px){
+    .page-title{
+        padding-bottom: 50px;
+    }
     .description{
         max-width: 440px;
     }
