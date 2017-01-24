@@ -3,7 +3,7 @@ body {
   color: #fff; }
 
 .container {
-  max-width: 910px; }
+  max-width: 880px; }
 
 .main-header {
   background: url(../images/banner.jpg) no-repeat center;
@@ -28,7 +28,7 @@ body {
 
 .profile {
   padding-top: 40px;
-  margin: 23px 0; }
+  margin: 20px 0; }
   .profile p {
     margin: 0; }
 
@@ -69,11 +69,14 @@ body {
 .contact-form .form-group {
   margin-top: 33px;
   margin-bottom: 0; }
+  .contact-form .form-group label {
+    font-weight: bold; }
   .contact-form .form-group input.form-control {
     height: 50px; }
   .contact-form .form-group textarea.form-control {
     height: 304px;
     resize: none; }
+
 .contact-form .message-group {
   margin-bottom: 27px; }
 
@@ -107,18 +110,31 @@ body {
 
 @media (min-width: 768px) {
   .main-header {
-    padding-left: 60px;
-    padding-right: 60px;
-    padding-top: 107px;
-    height: 648px; }
-
+    padding: 107px 60px; }
   .description {
-    padding: 0 62px;
-    margin-top: 36px;
     margin-left: auto;
     margin-right: auto; }
-
+    .description p {
+      padding: 0 62px; }
   .btn-submit {
     width: 250px; } }
 
-/*# sourceMappingURL=style.css.map */
+@media (min-width: 992px) {
+  .main-header {
+    height: 648px; }
+  .description img {
+    border: 3px solid #fff; }
+  .page-title {
+    padding-top: 63px;
+    padding-bottom: 34px; }
+  .contact-info {
+    padding-top: 58px;
+    padding-bottom: 58px; }
+    .contact-info .contact-block {
+      padding-top: 0;
+      padding-bottom: 0; }
+  .contact-form .row {
+    margin-left: -37px;
+    margin-right: -37px; }
+  .contact-form .form-group {
+    padding: 0 22px; } }
