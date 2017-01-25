@@ -1,20 +1,77 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using System.Web.Security;
+using TOEICEssentialWords.Service.Interfaces;
+using TOEICEssentialWords.Web.ViewModels;
 
 namespace TOEICEssentialWords.Web.Controllers
 {
     public class AccountController : Controller
     {
-        // GET: Account
-        public ActionResult Index()
+        private readonly MembershipService _membershipService;
+
+        public AccountController(MembershipService membershipService)
+        {
+            _membershipService = membershipService;
+        }
+
+        public ActionResult Login()
+        {
+            var viewModel = new LoginViewModel();
+
+            var returnUrl = Request["ReturnUrl"];
+            if (!string.IsNullOrEmpty(returnUrl))
+            {
+                viewModel.ReturnUrl = returnUrl;
+            }
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (_membershipService.ValidateUser(model.Username, model.Password))
+                {
+                    FormsAuthentication.SetAuthCookie(model.Username, model.RememberMe);
+
+                    if (Url.IsLocalUrl(model.ReturnUrl) &&
+                        model.ReturnUrl.Length > 1 &&
+                        model.ReturnUrl.StartsWith("/", System.StringComparison.CurrentCulture) &&
+                        !model.ReturnUrl.StartsWith("//", System.StringComparison.CurrentCulture) &&
+                        !model.ReturnUrl.StartsWith("/\\", System.StringComparison.CurrentCulture))
+                    {
+                        return Redirect(model.ReturnUrl);
+                    }
+
+                    return RedirectToAction("Index", "Home", new { area = string.Empty });
+                }
+            }
+
+            return View(model);
+        }
+
+        public ActionResult Register()
         {
             return View();
         }
 
-        public ActionResult Login()
+        [HttpPost]
+        public ActionResult Register(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+            }
+            return View(model);
+        }
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home", new { area = string.Empty });
+        }
+
+        public ActionResult ForgotPassword()
         {
             return View();
         }

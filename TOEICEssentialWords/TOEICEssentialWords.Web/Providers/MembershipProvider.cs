@@ -11,6 +11,11 @@ namespace TOEICEssentialWords.Web.Providers
             get { return ServiceFactory.Get<MembershipService>(); }
         }
 
+        public override bool ValidateUser(string username, string password)
+        {
+            return MembershipService.ValidateUser(username, password);
+        }
+
         public override string ApplicationName
         {
             get
@@ -177,11 +182,6 @@ namespace TOEICEssentialWords.Web.Providers
         public override void UpdateUser(MembershipUser user)
         {
             throw new NotImplementedException();
-        }
-
-        public override bool ValidateUser(string username, string password)
-        {
-            return MembershipService.ValidateUser(username, password);
         }
     }
 }

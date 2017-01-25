@@ -108,6 +108,7 @@ width: 100%;
     border-radius: 5px;
     float: right;
     width: 120px;
+    width: 100%
 }
 
 @media(min-width: 1px) and (max-width: 414px){
@@ -120,13 +121,22 @@ width: 100%;
     }
 }
 
-@media(min-width:769px){
+@media(min-width:768px){
+    .btn-submit{
+        width: 120px;
+    }
+}
+
+@media(min-width: 992px){
     .container{
         max-width: 990px;
     }
-
-    .btn-submit{
-        width: 120px;
+    
+    .page-title{
+        padding-bottom: 50px;
+    }
+    .description{
+        max-width: 440px;
     }
 
     .contact-form{
@@ -137,14 +147,5 @@ width: 100%;
         .col-message{
             padding-left: 0;
         }
-    }
-}
-
-@media(min-width: 992px){
-    .page-title{
-        padding-bottom: 50px;
-    }
-    .description{
-        max-width: 440px;
     }
 }

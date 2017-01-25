@@ -1,10 +1,8 @@
 ﻿using SimpleInjector;
 using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
-using System.Data.Entity;
 using System.Reflection;
 using System.Web.Mvc;
-using TOEICEssentialWords.Data;
 using TOEICEssentialWords.Data.Infrastructure;
 using TOEICEssentialWords.Data.Repositories;
 using TOEICEssentialWords.Model.Entities;
@@ -26,8 +24,6 @@ namespace TOEICEssentialWords.Web
             var container = new Container();
             container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
 
-            container.Register<DbContext, EssentialWordsContext>(Lifestyle.Scoped);
-
             container.Register<DataFactory, DataFactoryImp>(Lifestyle.Scoped);
 
             container.Register<UnitOfWork, UnitOfWorkImp>(Lifestyle.Scoped);
@@ -45,6 +41,7 @@ namespace TOEICEssentialWords.Web
             container.Register<BaseService<Definition>, BaseServiceImp<Definition>>(Lifestyle.Scoped);
             container.Register<BaseService<User>, BaseServiceImp<User>>(Lifestyle.Scoped);
             container.Register<BaseService<Role>, BaseServiceImp<Role>>(Lifestyle.Scoped);
+            container.Register<MembershipService, MembershipServiceImp>(Lifestyle.Scoped);
 
             container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
             container.Verify();
