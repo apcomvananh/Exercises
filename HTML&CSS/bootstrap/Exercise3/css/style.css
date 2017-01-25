@@ -50,8 +50,8 @@ body {
   padding-top: 35px;
   padding-bottom: 35px; }
   .contact-info .contact-block {
-    padding-top: 15px;
-    padding-bottom: 15px; }
+    padding-top: 20px;
+    padding-bottom: 20px; }
     .contact-info .contact-block:first-child {
       padding-top: 0; }
     .contact-info .contact-block:last-child {
@@ -76,7 +76,6 @@ body {
   .contact-form .form-group textarea.form-control {
     height: 304px;
     resize: none; }
-
 .contact-form .message-group {
   margin-bottom: 27px; }
 
@@ -111,30 +110,37 @@ body {
 @media (min-width: 768px) {
   .main-header {
     padding: 107px 60px; }
+
   .description {
     margin-left: auto;
     margin-right: auto; }
     .description p {
       padding: 0 62px; }
+
   .btn-submit {
     width: 250px; } }
-
 @media (min-width: 992px) {
   .main-header {
     height: 648px; }
+
   .description img {
     border: 3px solid #fff; }
+
   .page-title {
     padding-top: 63px;
     padding-bottom: 34px; }
+
   .contact-info {
     padding-top: 58px;
     padding-bottom: 58px; }
     .contact-info .contact-block {
       padding-top: 0;
       padding-bottom: 0; }
+
   .contact-form .row {
     margin-left: -37px;
     margin-right: -37px; }
   .contact-form .form-group {
     padding: 0 22px; } }
+
+/*# sourceMappingURL=style.css.map */
