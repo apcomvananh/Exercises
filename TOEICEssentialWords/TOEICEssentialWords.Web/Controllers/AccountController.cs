@@ -1,5 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using System.Web.Security;
+using TOEICEssentialWords.Model.Entities;
 using TOEICEssentialWords.Service.Interfaces;
 using TOEICEssentialWords.Web.ViewModels;
 
@@ -37,9 +39,9 @@ namespace TOEICEssentialWords.Web.Controllers
 
                     if (Url.IsLocalUrl(model.ReturnUrl) &&
                         model.ReturnUrl.Length > 1 &&
-                        model.ReturnUrl.StartsWith("/", System.StringComparison.CurrentCulture) &&
-                        !model.ReturnUrl.StartsWith("//", System.StringComparison.CurrentCulture) &&
-                        !model.ReturnUrl.StartsWith("/\\", System.StringComparison.CurrentCulture))
+                        model.ReturnUrl.StartsWith("/", StringComparison.CurrentCulture) &&
+                        !model.ReturnUrl.StartsWith("//", StringComparison.CurrentCulture) &&
+                        !model.ReturnUrl.StartsWith("/\\", StringComparison.CurrentCulture))
                     {
                         return Redirect(model.ReturnUrl);
                     }
@@ -61,6 +63,27 @@ namespace TOEICEssentialWords.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                var newUser = new User
+                {
+                    FirtName = model.FirstName,
+                    LastName = model.LastName,
+                    UserName = model.Username,
+                    Password = model.Password,
+                    DateCreated = DateTime.UtcNow
+                };
+
+                _membershipService.CreateUser(newUser);
+
+                if (Url.IsLocalUrl(model.ReturnUrl) &&
+                        model.ReturnUrl.Length > 1 &&
+                        model.ReturnUrl.StartsWith("/", StringComparison.CurrentCulture) &&
+                        !model.ReturnUrl.StartsWith("//", StringComparison.CurrentCulture) &&
+                        !model.ReturnUrl.StartsWith("/\\", StringComparison.CurrentCulture))
+                {
+                    return Redirect(model.ReturnUrl);
+                }
+
+                return RedirectToAction("Index", "Home", new { area = string.Empty });
             }
             return View(model);
         }
@@ -69,11 +92,6 @@ namespace TOEICEssentialWords.Web.Controllers
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home", new { area = string.Empty });
-        }
-
-        public ActionResult ForgotPassword()
-        {
-            return View();
         }
     }
 }

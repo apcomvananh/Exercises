@@ -7,7 +7,7 @@
 }
 <div class="main-wrapper">
     <div class="container content-wrapper login-container">
-        <h2 class="text-center">@ViewBag.Title</h2>
+        <h2 class="text-center">Login</h2>
         <hr />
         @using (Html.BeginForm("Login", "Account", FormMethod.Post))
         {
@@ -30,9 +30,8 @@
                 @Html.CheckBoxFor(model => model.RememberMe)
                 @Html.LabelFor(model => model.RememberMe)
             </div>
-            <div>
-                <button type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
-            </div>
+            <button type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
+            @Html.HiddenFor(model => model.ReturnUrl)
         }
     </div>
 </div>

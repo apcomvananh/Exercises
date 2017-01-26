@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.Web.Security;
 using TOEICEssentialWords.Service.Interfaces;
 
@@ -6,9 +7,49 @@ namespace TOEICEssentialWords.Web.Providers
 {
     public class MembershipProvider : System.Web.Security.MembershipProvider
     {
+        private string _applicationName;
+        private bool _enablePasswordReset;
+        private bool _enablePasswordRetrieval = false;
+        private bool _requiresQuestionAndAnswer;
+        private bool _requiresUniqueEmail;
+        private int _maxInvalidPasswordAttempts;
+        private int _passwordAttemptWindow;
+        private int _minRequiredNonAlphanumericCharacters;
+        private int _minRequiredPasswordLength;
+
         public MembershipService MembershipService
         {
             get { return ServiceFactory.Get<MembershipService>(); }
+        }
+
+        public override void Initialize(string name, NameValueCollection config)
+        {
+            if (config == null)
+            {
+                throw new ArgumentNullException("config");
+            }
+
+            if (string.IsNullOrEmpty(name))
+            {
+                name = "CustomMembershipProvider";
+            }
+
+            if (String.IsNullOrEmpty(config["description"]))
+            {
+                config.Remove("description");
+                config.Add("description", "Custom Membership Provider");
+            }
+
+            base.Initialize(name, config);
+
+            _applicationName = GetConfigValue(config["applicationName"], System.Web.Hosting.HostingEnvironment.ApplicationVirtualPath);
+            _maxInvalidPasswordAttempts = Convert.ToInt32(GetConfigValue(config["maxInvalidPasswordAttempts"], "5"));
+            _passwordAttemptWindow = Convert.ToInt32(GetConfigValue(config["passwordAttemptWindow"], "10"));
+            _minRequiredNonAlphanumericCharacters = Convert.ToInt32(GetConfigValue(config["minRequiredNonAlphanumericCharacters"], "1"));
+            _minRequiredPasswordLength = Convert.ToInt32(GetConfigValue(config["minRequiredPasswordLength"], "6"));
+            _requiresQuestionAndAnswer = Convert.ToBoolean(GetConfigValue(config["requiresQuestionAndAnswer"], "false"));
+            _requiresUniqueEmail = Convert.ToBoolean(GetConfigValue(config["requiresUniqueEmail"], "false"));
+            _enablePasswordReset = Convert.ToBoolean(GetConfigValue(config["enablePasswordReset"], "true"));
         }
 
         public override bool ValidateUser(string username, string password)
@@ -20,28 +61,24 @@ namespace TOEICEssentialWords.Web.Providers
         {
             get
             {
-                throw new NotImplementedException();
+                return _applicationName;
             }
-
             set
             {
-                throw new NotImplementedException();
+                _applicationName = value;
             }
         }
 
         public override bool EnablePasswordReset
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get { return _enablePasswordReset; }
         }
 
         public override bool EnablePasswordRetrieval
         {
             get
             {
-                throw new NotImplementedException();
+                return _enablePasswordRetrieval;
             }
         }
 
@@ -49,7 +86,7 @@ namespace TOEICEssentialWords.Web.Providers
         {
             get
             {
-                throw new NotImplementedException();
+                return _maxInvalidPasswordAttempts;
             }
         }
 
@@ -57,7 +94,7 @@ namespace TOEICEssentialWords.Web.Providers
         {
             get
             {
-                throw new NotImplementedException();
+                return _minRequiredNonAlphanumericCharacters;
             }
         }
 
@@ -65,7 +102,7 @@ namespace TOEICEssentialWords.Web.Providers
         {
             get
             {
-                throw new NotImplementedException();
+                return _minRequiredPasswordLength;
             }
         }
 
@@ -73,9 +110,27 @@ namespace TOEICEssentialWords.Web.Providers
         {
             get
             {
-                throw new NotImplementedException();
+                return _passwordAttemptWindow;
             }
         }
+
+        public override bool RequiresQuestionAndAnswer
+        {
+            get
+            {
+                return _requiresQuestionAndAnswer;
+            }
+        }
+
+        public override bool RequiresUniqueEmail
+        {
+            get
+            {
+                return _requiresUniqueEmail;
+            }
+        }
+
+        #region NOT IMPLEMENTED
 
         public override MembershipPasswordFormat PasswordFormat
         {
@@ -86,22 +141,6 @@ namespace TOEICEssentialWords.Web.Providers
         }
 
         public override string PasswordStrengthRegularExpression
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public override bool RequiresQuestionAndAnswer
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public override bool RequiresUniqueEmail
         {
             get
             {
@@ -182,6 +221,13 @@ namespace TOEICEssentialWords.Web.Providers
         public override void UpdateUser(MembershipUser user)
         {
             throw new NotImplementedException();
+        }
+
+        #endregion NOT IMPLEMENTED
+
+        private static string GetConfigValue(string configValue, string defaultValue)
+        {
+            return String.IsNullOrEmpty(configValue) ? defaultValue : configValue;
         }
     }
 }

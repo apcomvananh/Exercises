@@ -44,5 +44,11 @@ namespace TOEICEssentialWords.Web.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult AddToWordList(int wordId)
+        {
+            return View();
+        }
     }
 }

@@ -1,0 +1,20 @@
+﻿<ul class="nav navbar-nav navbar-right">
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <li><a href="@Url.Action("Register","Account")">Register</a></li>
+        <li><a href="@Url.Action("Login","Account")">Login</a></li>
+    }
+    else
+    {
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> @User.Identity.Name <b class="caret"></b></a>
+            <ul class="dropdown-menu user-dropdown">
+                @if (User.IsInRole(TOEICEssentialWords.Model.AppConstants.AdminRoleName))
+                {
+                    <li><a href="@Url.Action("Index", "Admin", new {area = "Admin"}, null)">Admin</a></li>
+                }
+                <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
+            </ul>
+        </li>
+    }
+</ul>

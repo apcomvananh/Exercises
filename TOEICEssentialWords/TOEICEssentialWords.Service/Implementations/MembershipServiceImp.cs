@@ -2,6 +2,7 @@
 using System.Linq;
 using TOEICEssentialWords.Data.Infrastructure;
 using TOEICEssentialWords.Data.Repositories;
+using TOEICEssentialWords.Model;
 using TOEICEssentialWords.Model.Entities;
 using TOEICEssentialWords.Service.Interfaces;
 using TOEICEssentialWords.Service.Utils;
@@ -25,6 +26,10 @@ namespace TOEICEssentialWords.Service.Implementations
 
         public void CreateUser(User user)
         {
+            var salt = StringUtils.CreateSalt(AppConstants.SaltSize);
+            var hash = StringUtils.GenerateSaltedHash(user.Password, salt);
+            user.Password = hash;
+            user.Salt = salt;
             _userRepository.Add(user);
             _unitOfWork.Commit();
         }
@@ -62,7 +67,7 @@ namespace TOEICEssentialWords.Service.Implementations
 
             if (user != null)
             {
-                var salt = user.Salt.ToString();
+                var salt = user.Salt;
                 var hash = StringUtils.GenerateSaltedHash(password, salt);
 
                 if (user.Password == hash)

@@ -20,7 +20,7 @@
                     </button>
                     <a href="/" class="navbar-brand">TOEIC ESSENTIAL WORDS</a>
                 </div>
-                <div class="navbar-form navbar-left searchfield">
+                <div class="navbar-form navbar-left">
                     @using (Html.BeginForm("SearchWord", "Word", FormMethod.Get))
                     {
                         <div class="input-group add-on">
@@ -32,10 +32,7 @@
 
                     }
                 </div>
-                <ul class="nav navbar-right top-nav">
-                    <li><a href="@Url.Action("Register","Account")">Register</a></li>
-                    <li><a href="@Url.Action("Login","Account")">Login</a></li>
-                </ul>
+                @Html.Partial("_UserTools")
                 @RenderSection("SideBar", false)
             </div>
         </nav>

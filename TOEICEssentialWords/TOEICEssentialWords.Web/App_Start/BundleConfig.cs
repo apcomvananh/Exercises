@@ -25,6 +25,10 @@ namespace TOEICEssentialWords.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/Style.css"));
+
+            bundles.Add(new StyleBundle("~/Content/admincss").Include(
+                      "~/Content/bootstrap.css",
+                      "~/Content/admin.css"));
         }
     }
 }

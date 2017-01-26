@@ -15,7 +15,7 @@ namespace TOEICEssentialWords.Model.Entities
 
         public string Password { get; set; }
 
-        public Guid Salt { get; set; }
+        public string Salt { get; set; }
 
         public DateTime DateCreated { get; set; }
 

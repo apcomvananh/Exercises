@@ -15,32 +15,14 @@
     .navbar-inverse .navbar-nav li a:focus {
       color: #f4783d;
       font-weight: bold; }
+  .navbar-inverse .navbar-right li a {
+    color: #fff; }
   .navbar-inverse .navbar-brand {
     color: #fff;
     font-weight: bold; }
 
-.top-nav {
-  padding: 0 15px; }
-  .top-nav li {
-    display: inline-block;
-    float: left; }
-    .top-nav li a {
-      color: #fff;
-      padding-top: 15px;
-      padding-bottom: 15px;
-      line-height: 20px; }
-
-.navbar-center {
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  margin: auto;
-  padding-top: 8px; }
-
-.searchfield form {
-  max-width: 360px;
-  margin-left: auto;
-  margin-right: auto; }
+.dropdown-menu li a {
+  color: #444 !important; }
 
 .add-on .input-group-btn .btn {
   border-left-width: 0;
@@ -146,13 +128,12 @@
     overflow-x: hidden;
     padding-bottom: 40px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
-    .side-nav .navbar-brand {
-      width: 100%;
-      margin-left: auto !important;
-      margin-right: auto;
-      text-align: center; }
     .side-nav ul li a {
       width: 225px; }
   .wordlist button {
-    float: right; } }
+    float: right; }
+  .navbar-nav li {
+    float: left; }
+  .navbar-nav .dropdown-menu li {
+    float: none; } }
 
