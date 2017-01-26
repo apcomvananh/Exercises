@@ -10,7 +10,7 @@
 <body>
     <header>
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".topic-menu">
                         <span class="sr-only">Toggle navigation</span>
@@ -18,8 +18,9 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
+                    <a href="/" class="navbar-brand">TOEIC ESSENTIAL WORDS</a>
                 </div>
-                <div class="navbar-form navbar-center searchfield">
+                <div class="navbar-form navbar-left searchfield">
                     @using (Html.BeginForm("SearchWord", "Word", FormMethod.Get))
                     {
                         <div class="input-group add-on">
@@ -32,24 +33,26 @@
                     }
                 </div>
                 <ul class="nav navbar-right top-nav">
-                    <li><a href="#">Register</a></li>
-                    <li><a href="#">Login</a></li>
+                    <li><a href="@Url.Action("Register","Account")">Register</a></li>
+                    <li><a href="@Url.Action("Login","Account")">Login</a></li>
                 </ul>
-                @Html.Action("TopicMenu", "Topic")
+                @RenderSection("SideBar", false)
             </div>
         </nav>
     </header>
-    <main>
-        <div id="page_wrapper">
-            <div class="container">
-                <section id="section_body">
-                    <div class="content-wrapper">
-                        @RenderBody()
-                    </div>
-                </section>
+
+    <section class="main-section">
+        @RenderBody()
+    </section>
+    <footer class="navbar-fixed-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>&copy; @DateTime.UtcNow.Year - Powered by <a href="http://nexcel.vn">Nexcel Solutions</a></p>
+                </div>
             </div>
         </div>
-    </main>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

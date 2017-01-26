@@ -8,7 +8,7 @@ body {
 }
 
 .navbar-inverse {
-    background-color: #4891dc;
+    background-color: $secondaryColor;
     border: none;
     border-radius: 0;
     color: $primaryColor;
@@ -28,6 +28,11 @@ body {
                 }
             }
         }
+    }
+
+    .navbar-brand {
+        color: $primaryColor;
+        font-weight: bold;
     }
 }
 
@@ -93,16 +98,20 @@ body {
     }
 }
 
-#page_wrapper {
+.main-wrapper {
     padding: 10px;
 }
 
 .content-wrapper {
     background-color: #fff;
     border-radius: 10px;
-    position: relative;
     padding: 30px;
     box-shadow: 0 1px 5px #bebebe;
+}
+
+.login-container {
+    max-width: 350px;
+    margin-top: 50px;
 }
 
 .content-header {
@@ -196,13 +205,13 @@ body {
 }
 
 @media(min-width: 768px) {
-    main {
+    .mainbody {
         padding-left: 225px;
     }
 
     .side-nav {
         position: fixed;
-        top: 0px;
+        top: 50px;
         left: 225px;
         width: 225px;
         margin-left: -225px;

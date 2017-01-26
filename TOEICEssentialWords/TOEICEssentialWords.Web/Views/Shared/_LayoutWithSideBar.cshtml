@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section SideBar{
+    @Html.Action("TopicMenu", "Topic")
+}
+
+<div class="mainbody">
+    <div class="main-wrapper">
+        <div class="container content-wrapper">
+            @RenderBody()
+        </div>
+    </div>
+</div>

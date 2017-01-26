@@ -15,6 +15,9 @@
     .navbar-inverse .navbar-nav li a:focus {
       color: #f4783d;
       font-weight: bold; }
+  .navbar-inverse .navbar-brand {
+    color: #fff;
+    font-weight: bold; }
 
 .top-nav {
   padding: 0 15px; }
@@ -54,15 +57,18 @@
     display: block;
     padding: 10px 15px 10px 38px; }
 
-#page_wrapper {
+.main-wrapper {
   padding: 10px; }
 
 .content-wrapper {
   background-color: #fff;
   border-radius: 10px;
-  position: relative;
   padding: 30px;
   box-shadow: 0 1px 5px #bebebe; }
+
+.login-container {
+  max-width: 350px;
+  margin-top: 50px; }
 
 .content-header {
   background-color: #4891dc;
@@ -124,11 +130,11 @@
     display: none; } }
 
 @media (min-width: 768px) {
-  main {
+  .mainbody {
     padding-left: 225px; }
   .side-nav {
     position: fixed;
-    top: 0px;
+    top: 50px;
     left: 225px;
     width: 225px;
     margin-left: -225px;
