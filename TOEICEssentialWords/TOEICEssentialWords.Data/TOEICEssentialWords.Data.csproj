@@ -70,6 +70,10 @@
     <Compile Include="Migrations\201701260557234_UpdateModel.Designer.cs">
       <DependentUpon>201701260557234_UpdateModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702021011162_AddSlug.cs" />
+    <Compile Include="Migrations\201702021011162_AddSlug.Designer.cs">
+      <DependentUpon>201702021011162_AddSlug.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -91,6 +95,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701260557234_UpdateModel.resx">
       <DependentUpon>201701260557234_UpdateModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702021011162_AddSlug.resx">
+      <DependentUpon>201702021011162_AddSlug.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

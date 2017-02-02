@@ -11,7 +11,11 @@ namespace TOEICEssentialWords.Web.ViewModels
 
         public string BrEPronoun { get; set; }
 
+        public string BrESoundUrl { get; set; }
+
         public string NAmEPronoun { get; set; }
+
+        public string NAmESoundUrl { get; set; }
 
         public IList<Definition> Definitons { get; set; }
     }

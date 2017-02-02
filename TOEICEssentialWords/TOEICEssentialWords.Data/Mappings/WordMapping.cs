@@ -9,7 +9,10 @@ namespace TOEICEssentialWords.Data.Mappings
             Property(w => w.Name);
             Property(w => w.WordType);
             Property(w => w.BrEPronoun);
+            Property(w => w.BrESoundUrl);
             Property(w => w.NAmEPronoun);
+            Property(w => w.NAmESoundUrl);
+            Property(w => w.Slug);
             Property(w => w.LessonId);
 
             ToTable("Word");

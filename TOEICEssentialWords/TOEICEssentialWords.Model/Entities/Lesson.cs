@@ -12,10 +12,9 @@ namespace TOEICEssentialWords.Model.Entities
 
         public int TopicId { get; set; }
 
-        public string DisplayName
-        {
-            get { return string.Format("{0}. {1}", LessonNumber, Name); }
-        }
+        public string Slug { get; set; }
+
+        public string DisplayName => string.Format("{0}. {1}", LessonNumber, Name);
 
         public virtual Topic Topic { get; set; }
 

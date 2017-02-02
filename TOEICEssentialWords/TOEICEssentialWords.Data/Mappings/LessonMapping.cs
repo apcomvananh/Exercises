@@ -9,6 +9,7 @@ namespace TOEICEssentialWords.Data.Mappings
             Property(l => l.Name);
             Property(l => l.LessonNumber);
             Property(l => l.TopicId);
+            Property(l => l.Slug);
 
             ToTable("Lesson");
 

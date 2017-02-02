@@ -19,6 +19,8 @@ namespace TOEICEssentialWords.Model.Entities
 
         public string NAmESoundUrl { get; set; }
 
+        public string Slug { get; set; }
+
         public int LessonId { get; set; }
 
         public virtual Lesson Lesson { get; set; }

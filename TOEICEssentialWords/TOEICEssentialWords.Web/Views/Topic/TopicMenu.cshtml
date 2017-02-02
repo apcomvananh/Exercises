@@ -13,7 +13,7 @@
                             @foreach (var lesson in topic.Lessons)
                             {
                                 <li>
-                                    <a href="@Url.Action("Index", "Lesson", new { id = lesson.Id })">@lesson.DisplayName</a>
+                                    <a href="@Url.Action("Index", "Lesson", new { slug = lesson.Slug })">@lesson.DisplayName</a>
                                 </li>
                             }
                         </ul>

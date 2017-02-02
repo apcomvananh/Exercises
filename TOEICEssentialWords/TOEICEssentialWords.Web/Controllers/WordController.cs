@@ -17,25 +17,27 @@ namespace TOEICEssentialWords.Web.Controllers
             _definitionService = definitionService;
         }
 
-        public ActionResult Index(int id)
+        public ActionResult Index(string slug)
         {
-            var word = _wordService.GetSingle(id);
+            var word = _wordService.FindBy(w => w.Slug.Equals(slug)).FirstOrDefault();
             return View(new WordViewModel
             {
                 Name = word.Name,
                 WordType = word.WordType.ToString(),
                 BrEPronoun = word.BrEPronoun,
+                BrESoundUrl = word.BrESoundUrl,
                 NAmEPronoun = word.NAmEPronoun,
+                NAmESoundUrl = word.NAmESoundUrl,
                 Definitons = word.Definitions.ToList()
             });
         }
 
-        public ActionResult SearchWord(string searchWord)
+        public ActionResult SearchWord(string keyword)
         {
-            var word = _wordService.FindBy(w => w.Name.Equals(searchWord)).FirstOrDefault();
+            var word = _wordService.FindBy(w => w.Name.Equals(keyword)).FirstOrDefault();
             if (word != null)
             {
-                return RedirectToAction("Index", new { id = word.Id });
+                return RedirectToAction("Index", new { slug = word.Slug });
             }
             return RedirectToAction("NotFound");
         }

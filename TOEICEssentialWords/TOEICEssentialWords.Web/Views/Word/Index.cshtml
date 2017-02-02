@@ -19,11 +19,21 @@
             <div class="pro BrE">
                 <span class="prefix">BrE</span>
                 <span>@Model.BrEPronoun</span>
+                <audio id="@Model.BrEPronoun">
+                    <source src="@string.Format("{0}.mp3",Model.BrESoundUrl)" />
+                    <source src="@string.Format("{0}.ogg",Model.BrESoundUrl)" />
+                </audio>
+                <button onclick="document.getElementById('@Model.BrEPronoun').play()"><i class="glyphicon glyphicon-volume-up"></i></button>
             </div>
             <span>;</span>
             <div class="pro NAmE">
                 <span class="prefix">NAmE</span>
                 <span>@Model.NAmEPronoun</span>
+                <audio id="@Model.NAmEPronoun">
+                    <source src="@string.Format("{0}.mp3",Model.NAmESoundUrl)" />
+                    <source src="@string.Format("{0}.ogg",Model.NAmESoundUrl)" />
+                </audio>
+                <button onclick="document.getElementById('@Model.NAmEPronoun').play()"><i class="glyphicon glyphicon-volume-up"></i></button>
             </div>
         </div>
         <div class="col-lg-6 wordlist">

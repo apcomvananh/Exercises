@@ -22,7 +22,7 @@
                     @foreach (var word in Model.WordsToLearn)
                     {
                         <li>
-                            <a href="@Url.Action("Index","Word", new { id=word.Id })">@word.Name</a>
+                            <a href="@Url.Action("Index", "Word", new { slug = word.Slug })">@word.Name</a>
                         </li>
                     }
                 </ul>

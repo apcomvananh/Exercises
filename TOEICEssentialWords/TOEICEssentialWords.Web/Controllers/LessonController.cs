@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Web.Mvc;
 using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 using TOEICEssentialWords.Model.Entities;
 using TOEICEssentialWords.Service.Interfaces;
 using TOEICEssentialWords.Web.ViewModels;
@@ -21,10 +18,10 @@ namespace TOEICEssentialWords.Web.Controllers
         }
 
         // GET: Lesson
-        public ActionResult Index(int id)
+        public ActionResult Index(string slug)
         {
-            var lesson = _lessonService.GetSingle(id);
-            var wordsToLearn = _wordService.FindBy(w => w.LessonId.Equals(id));
+            var lesson = _lessonService.FindBy(l => l.Slug.Equals(slug)).FirstOrDefault();
+            var wordsToLearn = _wordService.FindBy(w => w.LessonId.Equals(lesson.Id));
             var relatedLessons = _lessonService.FindBy(l => l.TopicId == lesson.TopicId && l.Id != lesson.Id);
 
             return View(new LessonViewModel { Name = lesson.Name, TopicName = lesson.Topic.Name, WordsToLearn = wordsToLearn, RelatedLessons = relatedLessons });
