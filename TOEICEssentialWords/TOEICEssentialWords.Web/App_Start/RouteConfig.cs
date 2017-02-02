@@ -22,6 +22,12 @@ namespace TOEICEssentialWords.Web
             );
 
             routes.MapRoute(
+                "notFoundUrl",
+                string.Concat("notfound", "/{keyword}"),
+                new { controller = "Word", action = "NotFound", keyword = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 "wordUrl",
                 string.Concat("word", "/{slug}"),
                 new { controller = "Word", action = "Index", slug = UrlParameter.Optional }

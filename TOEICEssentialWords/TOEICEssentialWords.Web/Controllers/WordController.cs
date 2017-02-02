@@ -35,15 +35,18 @@ namespace TOEICEssentialWords.Web.Controllers
         public ActionResult SearchWord(string keyword)
         {
             var word = _wordService.FindBy(w => w.Name.Equals(keyword)).FirstOrDefault();
+
             if (word != null)
             {
                 return RedirectToAction("Index", new { slug = word.Slug });
             }
-            return RedirectToAction("NotFound");
+
+            return RedirectToAction("NotFound", new { keyword = keyword });
         }
 
-        public ActionResult NotFound()
+        public ActionResult NotFound(string keyword)
         {
+            ViewBag.KeyWord = keyword;
             return View();
         }
 
