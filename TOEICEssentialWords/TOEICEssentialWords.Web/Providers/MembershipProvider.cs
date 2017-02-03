@@ -26,7 +26,7 @@ namespace TOEICEssentialWords.Web.Providers
         {
             if (config == null)
             {
-                throw new ArgumentNullException("config");
+                throw new ArgumentNullException(nameof(config));
             }
 
             if (string.IsNullOrEmpty(name))

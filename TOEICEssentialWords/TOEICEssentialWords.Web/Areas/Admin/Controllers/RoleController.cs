@@ -1,6 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using AutoMapper;
+using System.Collections.Generic;
+using System.Web.Mvc;
 using TOEICEssentialWords.Model.Entities;
 using TOEICEssentialWords.Service.Interfaces;
+using TOEICEssentialWords.Web.Areas.Admin.ViewModels;
 
 namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
 {
@@ -17,7 +20,11 @@ namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
         public override ActionResult Index()
         {
             var roles = _roleService.GetAll();
-            return View();
+            var roleListModel = new RoleListViewModel
+            {
+                Roles = Mapper.Map<IList<RoleViewModel>>(roles),
+            };
+            return View(roleListModel);
         }
 
         public ActionResult Create()

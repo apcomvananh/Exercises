@@ -1,0 +1,31 @@
+﻿body {
+  background-color: #f3f3f4; }
+
+#page-wrapper {
+  background-color: #f3f3f4;
+  border-bottom: 1px solid #e7eaec; }
+
+.panel {
+  margin-bottom: 25px;
+  margin-top: 0;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  border-top: 4px solid #e7eaec;
+  box-shadow: none; }
+  .panel .panel-heading {
+    border: none;
+    border-bottom: 1px solid #e7eaec;
+    margin-bottom: 0;
+    padding: 14px 15px 7px;
+    min-height: 44px; }
+    .panel .panel-heading h5 {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      text-overflow: ellipsis;
+      float: left;
+      font-weight: bold; }
+  .panel .panel-content, .panel .panel-body {
+    padding: 15px 20px 20px 20px; }
+

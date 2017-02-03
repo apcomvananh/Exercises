@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using TOEICEssentialWords.Web.Areas.Admin.Mappings;
 
 namespace TOEICEssentialWords.Web
 {
@@ -17,6 +18,7 @@ namespace TOEICEssentialWords.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             SimpleInjector.Start();
+            AutoMapperConfiguration.Configure();
         }
     }
 }
