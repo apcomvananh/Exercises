@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using System.Collections.Generic;
+using System;
+using System.Linq;
 using System.Web.Mvc;
 using TOEICEssentialWords.Model.Entities;
 using TOEICEssentialWords.Service.Interfaces;
@@ -16,48 +17,91 @@ namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
             _roleService = roleService;
         }
 
-        // GET: Admin/Role
         public override ActionResult Index()
         {
             var roles = _roleService.GetAll();
+
             var roleListModel = new RoleListViewModel
             {
-                Roles = Mapper.Map<IList<RoleViewModel>>(roles),
+                Roles = roles.ToList(),
             };
+
             return View(roleListModel);
         }
 
-        public ActionResult Create()
+        public PartialViewResult Create()
         {
-            return View();
+            return PartialView();
         }
 
         [HttpPost]
-        public ActionResult Create(Role role)
+        public ActionResult Create(RoleViewModel roleModel)
         {
             if (ModelState.IsValid)
             {
-                _roleService.Add(role);
-                return RedirectToAction("Index");
+                try
+                {
+                    var role = new Role
+                    {
+                        Name = roleModel.Name
+                    };
+
+                    _roleService.Add(role);
+                    return Json(new { success = true });
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                    return PartialView(roleModel);
+                }
             }
-            return View(role);
+            return PartialView(roleModel);
         }
 
-        public ActionResult Edit(int id)
+        public PartialViewResult Edit(int id)
         {
             var role = _roleService.GetSingle(id);
-            return View(role);
+            var roleModel = Mapper.Map<RoleViewModel>(role);
+            return PartialView(roleModel);
         }
 
         [HttpPost]
-        public ActionResult Edit(Role role)
+        public ActionResult Edit(RoleViewModel roleModel)
         {
             if (ModelState.IsValid)
             {
-                _roleService.Edit(role);
-                return RedirectToAction("Index");
+                try
+                {
+                    var role = _roleService.GetSingle(roleModel.Id);
+                    role.Name = roleModel.Name;
+                    _roleService.Edit(role);
+                    return Json(new { success = true });
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                    return PartialView(roleModel);
+                }
             }
-            return View(role);
+
+            return PartialView(roleModel);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                var role = _roleService.GetSingle(id);
+                _roleService.Delete(role);
+
+                ShowGenericMessage(GenericMessages.success, "Role Deleted");
+            }
+            catch (Exception ex)
+            {
+                ShowGenericMessage(GenericMessages.danger, ex.Message);
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }

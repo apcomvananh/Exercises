@@ -5,5 +5,7 @@
         public const int SaltSize = 24;
 
         public const string AdminRoleName = "Admin";
+
+        public const string MessageViewBagName = "Message";
     }
 }

@@ -12,6 +12,7 @@ namespace TOEICEssentialWords.Web.ViewModels
         [Required]
         public string Password { get; set; }
 
+        [Display(Name = "Remember me")]
         public bool RememberMe { get; set; }
     }
 }

@@ -1,0 +1,34 @@
+﻿<div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav navbar-collapse">
+        <ul class="nav" id="side-menu">
+            <li>
+                <a href="@Url.Action("Index","Admin",new { area = "Admin" },null)"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-users fa-fw"></i> Membership<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="@Url.Action("Index","User",new { area = "Admin" },null)"> Manage Users</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","Role",new { area = "Admin" },null)"> Manage Roles</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-book fa-fw"></i> Contents<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="@Url.Action("Index", "AdminTopic", new { area = "Admin" })">Manage Topic</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "AdminLesson", new { area = "Admin" })">Manage Lesson</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "AdminWord", new { area = "Admin" })">Manage Words</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

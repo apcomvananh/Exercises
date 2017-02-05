@@ -28,8 +28,18 @@ namespace TOEICEssentialWords.Web
 
             bundles.Add(new StyleBundle("~/Content/admincss").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/sb-admin.css",
-                      "~/Content/Admin.css"));
+                      "~/Content/metisMenu.css",
+                      "~/Content/admin/sb-admin-2.css",
+                      "~/Content/admin/Admin.css",
+                      "~/css/font-awesome.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/adminjs").Include(
+                      "~/Scripts/jquery.unobtrusive-ajax.min.js",
+                      "~/Scripts/metisMenu.js",
+                      "~/Scripts/admin/sb-admin-2.js",
+                      "~/Scripts/common.js",
+                      "~/Scripts/admin/user.js",
+                      "~/Scripts/admin/role.js"));
         }
     }
 }

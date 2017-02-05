@@ -48,6 +48,10 @@ namespace TOEICEssentialWords.Web.Controllers
 
                     return RedirectToAction("Index", "Home", new { area = string.Empty });
                 }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Incorrect username or password");
+                }
             }
 
             return View(model);
