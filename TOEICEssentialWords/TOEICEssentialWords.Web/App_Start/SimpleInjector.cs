@@ -36,8 +36,8 @@ namespace TOEICEssentialWords.Web
             container.Register<BaseRepository<Role>, BaseRepositoryImp<Role>>(Lifestyle.Scoped);
 
             container.Register<BaseService<Topic>, BaseServiceImp<Topic>>(Lifestyle.Scoped);
-            container.Register<BaseService<Lesson>, BaseServiceImp<Lesson>>(Lifestyle.Scoped);
-            container.Register<BaseService<Word>, BaseServiceImp<Word>>(Lifestyle.Scoped);
+            container.Register<BaseSlugService<Lesson>, BaseSlugServiceImp<Lesson>>(Lifestyle.Scoped);
+            container.Register<BaseSlugService<Word>, BaseSlugServiceImp<Word>>(Lifestyle.Scoped);
             container.Register<BaseService<Definition>, BaseServiceImp<Definition>>(Lifestyle.Scoped);
             container.Register<BaseService<User>, BaseServiceImp<User>>(Lifestyle.Scoped);
             container.Register<BaseService<Role>, BaseServiceImp<Role>>(Lifestyle.Scoped);

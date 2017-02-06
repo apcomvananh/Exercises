@@ -39,13 +39,13 @@ namespace TOEICEssentialWords.Service.Implementations
             return _repository.GetSingle(id);
         }
 
-        public void Add(T entity)
+        public virtual void Add(T entity)
         {
             _repository.Add(entity);
             _unitOfWork.Commit();
         }
 
-        public void Edit(T entity)
+        public virtual void Edit(T entity)
         {
             _repository.Edit(entity);
             _unitOfWork.Commit();

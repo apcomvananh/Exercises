@@ -1,0 +1,39 @@
+﻿@using TOEICEssentialWords.Web.Areas.Admin.ViewModels
+@model AdminTopicViewModel
+
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        @using (Ajax.BeginForm("Edit", "AdminTopic", FormMethod.Post, new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "POST",
+            UpdateTargetId = "topicModal",
+            OnSuccess = "AdminTopic.Success(data)"
+        }))
+        {
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="topicModalLabel">Edit Topic</h4>
+            </div>
+            <div class="modal-body">
+                @Html.ValidationSummary()
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.Id)
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Name)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Index, new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.Index, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Index)
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+        }
+    </div>
+</div>

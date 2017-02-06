@@ -8,7 +8,7 @@
             InsertionMode = InsertionMode.Replace,
             HttpMethod = "POST",
             UpdateTargetId = "roleModal",
-            OnSuccess = "role.Success(data)"
+            OnSuccess = "Role.Success(data)"
         }))
         {
             <div class="modal-header">
@@ -19,40 +19,15 @@
                 @Html.ValidationSummary()
                 @Html.AntiForgeryToken()
                 <div class="form-group">
-                    <label for="recipient-name" class="control-label">Role name:</label>
+                    @Html.LabelFor(model => model.Name, new { @class = "control-label" })
                     @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Name)
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-green">Create</button>
-                <button type="button" class="btn btn-red" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-success">Create</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
             </div>
         }
     </div>
 </div>
-@*<div class="topadminsubnav">
-        <div class="btn-group" role="group">
-            <a href="@Url.Action("Index","Role",new { area = "Admin" })" class="btn btn-green">&lt;&lt; Back</a>
-        </div>
-    </div>
-    <div class="panel">
-        <div class="panel-heading">
-            <h5>@ViewBag.Title</h5>
-        </div>
-        <div class="panel-content">
-            @using (Html.BeginForm("Create", "Role", FormMethod.Post))
-            {
-                @Html.ValidationSummary(false)
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Name)
-                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.Name)
-                </div>
-
-                <div class="submit-holder">
-                    <input type="submit" class="btn btn-green btn-lg" value="Create" />
-                </div>
-            }
-        </div>
-    </div>*@

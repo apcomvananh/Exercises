@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using TOEICEssentialWords.Model.Entities;
 
 namespace TOEICEssentialWords.Web.Areas.Admin.ViewModels
 {
@@ -14,5 +15,10 @@ namespace TOEICEssentialWords.Web.Areas.Admin.ViewModels
         [Required]
         [DisplayName("Role name")]
         public string Name { get; set; }
+    }
+
+    public class RoleListViewModel
+    {
+        public IList<Role> Roles { get; set; }
     }
 }

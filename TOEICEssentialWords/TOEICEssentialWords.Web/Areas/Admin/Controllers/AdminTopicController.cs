@@ -1,89 +1,118 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TOEICEssentialWords.Model.Entities;
+using TOEICEssentialWords.Service.Interfaces;
+using TOEICEssentialWords.Web.Areas.Admin.ViewModels;
 
 namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
 {
-    public class AdminTopicController : Controller
+    public class AdminTopicController : AdminController
     {
+        private readonly BaseService<Topic> _topicService;
+
+        public AdminTopicController(BaseService<Topic> topicService)
+        {
+            _topicService = topicService;
+        }
+
         // GET: Admin/Topic
-        public ActionResult Index()
+        public override ActionResult Index()
         {
-            return View();
+            var topics = _topicService.GetAll().OrderBy(t => t.Index);
+            var topicListModel = new AdminTopicListViewModel
+            {
+                Topics = topics.ToList()
+            };
+
+            return View(topicListModel);
         }
 
-        // GET: Admin/Topic/Details/5
-        public ActionResult Details(int id)
+        public PartialViewResult Create()
         {
-            return View();
-        }
-
-        // GET: Admin/Topic/Create
-        public ActionResult Create()
-        {
-            return View();
+            return PartialView();
         }
 
         // POST: Admin/Topic/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(AdminTopicViewModel topicModel)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
+                try
+                {
+                    var topic = new Topic
+                    {
+                        Name = topicModel.Name,
+                        Index = topicModel.Index,
+                    };
 
-                return RedirectToAction("Index");
+                    _topicService.Add(topic);
+
+                    return Json(new { success = true });
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                    return PartialView(topicModel);
+                }
             }
-            catch
-            {
-                return View();
-            }
+            return PartialView(topicModel);
         }
 
         // GET: Admin/Topic/Edit/5
-        public ActionResult Edit(int id)
+        public PartialViewResult Edit(int id)
         {
-            return View();
+            var topic = _topicService.GetSingle(id);
+            var topicModel = Mapper.Map<AdminTopicViewModel>(topic);
+
+            return PartialView(topicModel);
         }
 
         // POST: Admin/Topic/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(AdminTopicViewModel topicModel)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
+                try
+                {
+                    var topic = _topicService.GetSingle(topicModel.Id);
+                    topic.Name = topicModel.Name;
+                    topic.Index = topicModel.Index;
 
-                return RedirectToAction("Index");
+                    _topicService.Edit(topic);
+
+                    return Json(new { success = true });
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                    return PartialView(topicModel);
+                }
             }
-            catch
-            {
-                return View();
-            }
+
+            return PartialView(topicModel);
         }
 
-        // GET: Admin/Topic/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        // POST: Admin/Topic/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
             try
             {
-                // TODO: Add delete logic here
+                var role = _topicService.GetSingle(id);
+                _topicService.Delete(role);
 
-                return RedirectToAction("Index");
+                ShowGenericMessage(GenericMessages.success, "Topic Deleted");
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ShowGenericMessage(GenericMessages.danger, ex.Message);
             }
+
+            return RedirectToAction("Index");
         }
     }
 }

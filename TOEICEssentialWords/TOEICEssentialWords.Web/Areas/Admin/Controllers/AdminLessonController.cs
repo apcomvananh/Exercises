@@ -1,89 +1,134 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using TOEICEssentialWords.Model.Entities;
+using TOEICEssentialWords.Service.Interfaces;
+using TOEICEssentialWords.Web.Areas.Admin.ViewModels;
 
 namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
 {
-    public class AdminLessonController : Controller
+    public class AdminLessonController : AdminController
     {
-        // GET: Admin/Lesson
-        public ActionResult Index()
+        private readonly BaseSlugService<Lesson> _lessonService;
+        private readonly BaseService<Topic> _topicService;
+
+        public AdminLessonController(BaseSlugService<Lesson> lessonService, BaseService<Topic> topicService)
         {
-            return View();
+            _lessonService = lessonService;
+            _topicService = topicService;
         }
 
-        // GET: Admin/Lesson/Details/5
-        public ActionResult Details(int id)
+        public override ActionResult Index()
         {
-            return View();
+            var lessons = _lessonService.GetAll();
+            var lessonListModel = new AdminLessonListViewModel
+            {
+                Lessons = Mapper.Map<IList<AdminLessonViewModel>>(lessons)
+            };
+
+            return View(lessonListModel);
         }
 
-        // GET: Admin/Lesson/Create
-        public ActionResult Create()
+        public PartialViewResult Create()
         {
-            return View();
+            var viewModel = new AdminLessonViewModel { AllTopics = GetSelectListTopics() };
+            return PartialView(viewModel);
         }
 
-        // POST: Admin/Lesson/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(AdminLessonViewModel lessonModel)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
+                try
+                {
+                    var lesson = new Lesson
+                    {
+                        LessonNumber = lessonModel.LessonNumber,
+                        Name = lessonModel.Name,
+                        TopicId = lessonModel.TopicId,
+                    };
 
-                return RedirectToAction("Index");
+                    _lessonService.Add(lesson);
+
+                    return Json(new { success = true });
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                    lessonModel.AllTopics = GetSelectListTopics();
+                    return PartialView(lessonModel);
+                }
             }
-            catch
-            {
-                return View();
-            }
+
+            lessonModel.AllTopics = GetSelectListTopics();
+            return PartialView(lessonModel);
         }
 
-        // GET: Admin/Lesson/Edit/5
-        public ActionResult Edit(int id)
+        public PartialViewResult Edit(int id)
         {
-            return View();
+            var lesson = _lessonService.GetSingle(id);
+            var lessonViewModel = Mapper.Map<AdminLessonViewModel>(lesson);
+            lessonViewModel.AllTopics = GetSelectListTopics();
+            return PartialView(lessonViewModel);
         }
 
-        // POST: Admin/Lesson/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(AdminLessonViewModel lessonModel)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
+                try
+                {
+                    var lesson = _lessonService.GetSingle(lessonModel.Id);
 
-                return RedirectToAction("Index");
+                    lesson.LessonNumber = lessonModel.LessonNumber;
+                    lesson.Name = lessonModel.Name;
+                    lesson.TopicId = lessonModel.TopicId;
+
+                    _lessonService.Edit(lesson);
+
+                    return Json(new { success = true });
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                    lessonModel.AllTopics = GetSelectListTopics();
+                    return PartialView(lessonModel);
+                }
             }
-            catch
-            {
-                return View();
-            }
+
+            lessonModel.AllTopics = GetSelectListTopics();
+            return PartialView(lessonModel);
         }
 
-        // GET: Admin/Lesson/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        // POST: Admin/Lesson/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
             try
             {
-                // TODO: Add delete logic here
+                var lesson = _lessonService.GetSingle(id);
+                _lessonService.Delete(lesson);
 
-                return RedirectToAction("Index");
+                ShowGenericMessage(GenericMessages.success, "Lesson Deleted");
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ShowGenericMessage(GenericMessages.danger, ex.Message);
             }
+
+            return RedirectToAction("Index");
+        }
+
+        private IList<SelectListItem> GetSelectListTopics()
+        {
+            var allowedTopics = _topicService.GetAll();
+            var topics = new List<SelectListItem> { new SelectListItem { Text = string.Empty, Value = string.Empty } };
+            foreach (var topic in allowedTopics)
+            {
+                topics.Add(new SelectListItem { Text = topic.Name, Value = topic.Id.ToString() });
+            }
+            return topics;
         }
     }
 }

@@ -183,11 +183,11 @@
     <Compile Include="Areas\Admin\Controllers\AdminTopicController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminWordController.cs" />
-    <Compile Include="Areas\Admin\ViewModels\AjaxRoleUpdateViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\AdminLessonViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\AdminTopicViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\AdminWordViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\GenericMessageViewModel.cs" />
-    <Compile Include="Areas\Admin\ViewModels\RoleListViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\RoleViewModel.cs" />
-    <Compile Include="Areas\Admin\ViewModels\UserListViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\UserViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -251,6 +251,15 @@
     <Content Include="Areas\Admin\Views\Shared\_AdminTopNav.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AdminSidebarNav.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_GenericMessage.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminTopic\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminTopic\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminTopic\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminLesson\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminLesson\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminLesson\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminWord\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminWord\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminWord\Edit.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -263,9 +272,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Scripts\admin\admin.js" />
     <Content Include="Scripts\admin\FadeOutMessage.js" />
-    <Content Include="Scripts\admin\role.js" />
-    <Content Include="Scripts\admin\user.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\admin\Admin.scss" />
@@ -289,7 +297,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\metisMenu.js" />
     <Content Include="Scripts\metisMenu.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />

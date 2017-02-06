@@ -1,5 +1,7 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using TOEICEssentialWords.Model.Entities;
 
 namespace TOEICEssentialWords.Web.Areas.Admin.ViewModels
 {
@@ -21,6 +23,19 @@ namespace TOEICEssentialWords.Web.Areas.Admin.ViewModels
         public string UserName { get; set; }
 
         [DisplayName("Roles")]
+        public string[] Roles { get; set; }
+    }
+
+    public class UserListViewModel
+    {
+        public IList<UserViewModel> Users { get; set; }
+
+        public IList<Role> AllRoles { get; set; }
+    }
+
+    public class AjaxRoleUpdateViewModel
+    {
+        public int Id { get; set; }
         public string[] Roles { get; set; }
     }
 }

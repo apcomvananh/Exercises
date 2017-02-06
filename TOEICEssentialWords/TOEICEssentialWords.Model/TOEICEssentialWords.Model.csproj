@@ -45,6 +45,7 @@
     <Compile Include="Entities\Definition.cs" />
     <Compile Include="Entities\Lesson.cs" />
     <Compile Include="Entities\Role.cs" />
+    <Compile Include="Entities\SlugEntity.cs" />
     <Compile Include="Entities\Topic.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\Word.cs" />

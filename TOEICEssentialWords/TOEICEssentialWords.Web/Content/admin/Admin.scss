@@ -1,44 +1,12 @@
-﻿$color-global-green: #1ab394;
-$color-global-red: #ed5565;
-$color-global-blue: #1c84c6;
-$color-global-yellow: #f2f226;
-$color-global-grey-blue: #e7eaec;
-
-$admin-bg-color: #f3f3f4;
+﻿$admin-bg-color: #f3f3f4;
 $border-color: #e7eaec;
 
-@mixin color-button($color) {
-    background-color: $color;
-    color: #fff;
-
-    &:hover, &:focus, &:active {
-        background-color: darken($color,9%);
-        color: #fff;
-    }
-}
-
-.btn-green {
-    @include color-button($color-global-green);
-}
-
-.btn-red {
-    @include color-button($color-global-red);
-}
-
-.btn-blue {
-    @include color-button($color-global-blue);
-}
-
-.btn-yellow {
-    @include color-button($color-global-yellow);
-}
-
-.navbar{
+.navbar {
     padding: 0;
     margin: 0;
 }
 
-#page-wrapper{
+#page-wrapper {
     background-color: $admin-bg-color;
     border-bottom: 1px solid $border-color;
     padding: 10px;
@@ -75,6 +43,6 @@ $border-color: #e7eaec;
     }
 }
 
-.back-button{
+.back-button {
     margin-bottom: 10px;
 }

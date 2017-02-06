@@ -38,8 +38,7 @@ namespace TOEICEssentialWords.Web
                       "~/Scripts/metisMenu.js",
                       "~/Scripts/admin/sb-admin-2.js",
                       "~/Scripts/common.js",
-                      "~/Scripts/admin/user.js",
-                      "~/Scripts/admin/role.js"));
+                      "~/Scripts/admin/admin.js"));
         }
     }
 }

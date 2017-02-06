@@ -8,10 +8,10 @@ namespace TOEICEssentialWords.Web.Controllers
 {
     public class LessonController : Controller
     {
-        private readonly BaseService<Lesson> _lessonService;
-        private readonly BaseService<Word> _wordService;
+        private readonly BaseSlugService<Lesson> _lessonService;
+        private readonly BaseSlugService<Word> _wordService;
 
-        public LessonController(BaseService<Lesson> lessonService, BaseService<Word> wordService)
+        public LessonController(BaseSlugService<Lesson> lessonService, BaseSlugService<Word> wordService)
         {
             _lessonService = lessonService;
             _wordService = wordService;
@@ -20,7 +20,7 @@ namespace TOEICEssentialWords.Web.Controllers
         // GET: Lesson
         public ActionResult Index(string slug)
         {
-            var lesson = _lessonService.FindBy(l => l.Slug.Equals(slug)).FirstOrDefault();
+            var lesson = _lessonService.GetBySlug(slug);
             var wordsToLearn = _wordService.FindBy(w => w.LessonId.Equals(lesson.Id));
             var relatedLessons = _lessonService.FindBy(l => l.TopicId == lesson.TopicId && l.Id != lesson.Id);
 

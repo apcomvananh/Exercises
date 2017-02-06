@@ -1,89 +1,146 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using TOEICEssentialWords.Model.Entities;
+using TOEICEssentialWords.Service.Interfaces;
+using TOEICEssentialWords.Web.Areas.Admin.ViewModels;
 
 namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
 {
-    public class AdminWordController : Controller
+    public class AdminWordController : AdminController
     {
-        // GET: Admin/Word
-        public ActionResult Index()
+        private readonly BaseSlugService<Word> _wordService;
+        private readonly BaseSlugService<Lesson> _lessonService;
+
+        public AdminWordController(BaseSlugService<Word> wordService, BaseSlugService<Lesson> lessonService)
         {
-            return View();
+            _wordService = wordService;
+            _lessonService = lessonService;
         }
 
-        // GET: Admin/Word/Details/5
-        public ActionResult Details(int id)
+        public override ActionResult Index()
         {
-            return View();
+            var words = _wordService.GetAll();
+
+            var wordListModel = new AdminWordListViewModel
+            {
+                Words = Mapper.Map<IList<AdminWordViewModel>>(words)
+            };
+
+            return View(wordListModel);
         }
 
-        // GET: Admin/Word/Create
-        public ActionResult Create()
+        public PartialViewResult Create()
         {
-            return View();
+            var wordViewModel = new AdminWordViewModel { AllLessons = GetSelectListLessons() };
+            return PartialView(wordViewModel);
         }
 
-        // POST: Admin/Word/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(AdminWordViewModel wordModel)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
+                try
+                {
+                    var word = new Word
+                    {
+                        Name = wordModel.Name,
+                        WordType = wordModel.WordType,
+                        BrEPronoun = wordModel.BrEPronoun,
+                        BrESoundUrl = wordModel.BrESoundUrl,
+                        NAmEPronoun = wordModel.NAmEPronoun,
+                        NAmESoundUrl = wordModel.NAmESoundUrl,
+                        LessonId = wordModel.LessonId
+                    };
 
-                return RedirectToAction("Index");
+                    _wordService.Add(word);
+
+                    return Json(new { success = true });
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                    wordModel.AllLessons = GetSelectListLessons();
+
+                    return PartialView(wordModel);
+                }
             }
-            catch
-            {
-                return View();
-            }
+            wordModel.AllLessons = GetSelectListLessons();
+            return PartialView(wordModel);
         }
 
-        // GET: Admin/Word/Edit/5
-        public ActionResult Edit(int id)
+        public PartialViewResult Edit(int id)
         {
-            return View();
+            var word = _wordService.GetSingle(id);
+
+            var wordModel = Mapper.Map<AdminWordViewModel>(word);
+            wordModel.AllLessons = GetSelectListLessons();
+
+            return PartialView(wordModel);
         }
 
-        // POST: Admin/Word/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(AdminWordViewModel wordModel)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
+                try
+                {
+                    var word = _wordService.GetSingle(wordModel.Id);
 
-                return RedirectToAction("Index");
+                    word.Name = wordModel.Name;
+                    word.WordType = wordModel.WordType;
+                    word.BrEPronoun = wordModel.BrEPronoun;
+                    word.BrESoundUrl = wordModel.BrESoundUrl;
+                    word.NAmEPronoun = wordModel.NAmEPronoun;
+                    word.NAmESoundUrl = wordModel.NAmESoundUrl;
+
+                    _wordService.Edit(word);
+
+                    return Json(new { success = true });
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                    wordModel.AllLessons = GetSelectListLessons();
+
+                    return PartialView(wordModel);
+                }
             }
-            catch
-            {
-                return View();
-            }
+
+            wordModel.AllLessons = GetSelectListLessons();
+
+            return PartialView(wordModel);
         }
 
-        // GET: Admin/Word/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        // POST: Admin/Word/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
             try
             {
-                // TODO: Add delete logic here
+                var word = _wordService.GetSingle(id);
+                _wordService.Delete(word);
 
-                return RedirectToAction("Index");
+                ShowGenericMessage(GenericMessages.success, "Word Deleted");
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ShowGenericMessage(GenericMessages.danger, ex.Message);
             }
+
+            return RedirectToAction("Index");
+        }
+
+        private IList<SelectListItem> GetSelectListLessons()
+        {
+            var allowedLessons = _lessonService.GetAll();
+            var lessons = new List<SelectListItem> { new SelectListItem { Text = string.Empty, Value = string.Empty } };
+            foreach (var lesson in allowedLessons)
+            {
+                lessons.Add(new SelectListItem { Text = lesson.Name, Value = lesson.Id.ToString() });
+            }
+            return lessons;
         }
     }
 }

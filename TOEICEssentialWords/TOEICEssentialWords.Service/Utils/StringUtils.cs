@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
+using TOEICEssentialWords.Model.Entities;
 
 namespace TOEICEssentialWords.Service.Utils
 {
@@ -31,6 +33,38 @@ namespace TOEICEssentialWords.Service.Utils
             HashAlgorithm algorithm = new SHA256Managed();
             var byteHash = algorithm.ComputeHash(plainTextWithSaltBytes.ToArray());
             return Convert.ToBase64String(byteHash);
+        }
+
+        public static string GenerateSlug(string stringToSlug, IEnumerable<BaseEntity> similarList, string previousSlug)
+        {
+            var slug = CreateUrl(stringToSlug, "-");
+
+            var matchingEntities = similarList.ToList();
+
+            if (!matchingEntities.Any())
+            {
+                return slug;
+            }
+
+            if (string.IsNullOrEmpty(previousSlug))
+            {
+                if (matchingEntities.Any())
+                {
+                    slug = string.Concat(slug, "-", matchingEntities.Count);
+                }
+            }
+            else
+            {
+                if (slug != previousSlug)
+                {
+                    if (matchingEntities.Any())
+                    {
+                        slug = string.Concat(slug, "-", matchingEntities.Count);
+                    }
+                }
+            }
+
+            return slug;
         }
 
         public static string CreateUrl(string strInput, string replaceWith)

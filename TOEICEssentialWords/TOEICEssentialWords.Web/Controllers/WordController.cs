@@ -8,10 +8,10 @@ namespace TOEICEssentialWords.Web.Controllers
 {
     public class WordController : Controller
     {
-        private readonly BaseService<Word> _wordService;
+        private readonly BaseSlugService<Word> _wordService;
         private readonly BaseService<Definition> _definitionService;
 
-        public WordController(BaseService<Word> wordService, BaseService<Definition> definitionService)
+        public WordController(BaseSlugService<Word> wordService, BaseService<Definition> definitionService)
         {
             _wordService = wordService;
             _definitionService = definitionService;

@@ -3,7 +3,7 @@ using TOEICEssentialWords.Model.Enums;
 
 namespace TOEICEssentialWords.Model.Entities
 {
-    public class Word : BaseEntity
+    public class Word : SlugEntity
     {
         public int Id { get; set; }
 
