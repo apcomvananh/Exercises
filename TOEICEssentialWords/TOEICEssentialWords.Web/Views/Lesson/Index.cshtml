@@ -16,6 +16,20 @@
 <div class="row content-body">
     <div class="col-md-9">
         <p>Study the following definitions and excamples.</p>
+        <ul class="counter">
+            @foreach (var word in Model.WordsToLearn)
+            {
+                <li>
+                    <a href="@Url.Action("Index", "Word", new { slug = word.Slug })">@word.Name</a>
+                    <span>(@word.WordClass)</span>
+                    <span>@word.Definition</span>
+                    @foreach (var ex in word.Examples)
+                    {
+                        <span class="example">@ex</span>
+                    }
+                </li>
+            }
+        </ul>
     </div>
     <div class="col-lg-3">
         <div class="panel panel-default">

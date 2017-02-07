@@ -93,21 +93,21 @@
   border: 2px solid #4891dc;
   border-radius: 10px; }
 
-.content-body li {
+.counter li {
   display: block;
   position: relative;
   margin-top: 15px;
   padding-left: 25px; }
-  .content-body li:before {
+  .counter li:before {
     counter-increment: number;
     content: counter(number) ". ";
     width: 25px;
     left: -10px;
     text-align: right;
     position: absolute; }
-  .content-body li .example {
+  .counter li .example {
     display: block; }
-    .content-body li .example:before {
+    .counter li .example:before {
       font-family: "Glyphicons Halflings";
       content: "\e080";
       color: #f4783d;

@@ -3,6 +3,7 @@ using System.Linq;
 using TOEICEssentialWords.Model.Entities;
 using TOEICEssentialWords.Service.Interfaces;
 using TOEICEssentialWords.Web.ViewModels;
+using AutoMapper;
 
 namespace TOEICEssentialWords.Web.Controllers
 {
@@ -21,10 +22,10 @@ namespace TOEICEssentialWords.Web.Controllers
         public ActionResult Index(string slug)
         {
             var lesson = _lessonService.GetBySlug(slug);
-            var wordsToLearn = _wordService.FindBy(w => w.LessonId.Equals(lesson.Id));
-            var relatedLessons = _lessonService.FindBy(l => l.TopicId == lesson.TopicId && l.Id != lesson.Id);
+            var lessonViewModel = Mapper.Map<LessonViewModel>(lesson);
+            lessonViewModel.RelatedLessons = _lessonService.FindBy(l => l.TopicId == lesson.TopicId && l.Id != lesson.Id);
 
-            return View(new LessonViewModel { Name = lesson.Name, TopicName = lesson.Topic.Name, WordsToLearn = wordsToLearn, RelatedLessons = relatedLessons });
+            return View(lessonViewModel);
         }
     }
 }
