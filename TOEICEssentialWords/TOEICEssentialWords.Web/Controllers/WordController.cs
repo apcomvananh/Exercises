@@ -3,6 +3,7 @@ using TOEICEssentialWords.Model.Entities;
 using TOEICEssentialWords.Service.Interfaces;
 using TOEICEssentialWords.Web.ViewModels;
 using System.Linq;
+using AutoMapper;
 
 namespace TOEICEssentialWords.Web.Controllers
 {
@@ -20,16 +21,8 @@ namespace TOEICEssentialWords.Web.Controllers
         public ActionResult Index(string slug)
         {
             var word = _wordService.FindBy(w => w.Slug.Equals(slug)).FirstOrDefault();
-            return View(new WordViewModel
-            {
-                Name = word.Name,
-                WordType = word.WordType.ToString(),
-                BrEPronoun = word.BrEPronoun,
-                BrESoundUrl = word.BrESoundUrl,
-                NAmEPronoun = word.NAmEPronoun,
-                NAmESoundUrl = word.NAmESoundUrl,
-                Definitons = word.Definitions.ToList()
-            });
+            var wordViewModel = Mapper.Map<WordViewModel>(word);
+            return View(wordViewModel);
         }
 
         public ActionResult SearchWord(string keyword)

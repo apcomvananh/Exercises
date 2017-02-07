@@ -15,5 +15,7 @@ namespace TOEICEssentialWords.Web.Areas.Admin.ViewModels
     public class AdminTopicListViewModel
     {
         public IList<Topic> Topics { get; set; }
+
+        public string Search { get; set; }
     }
 }

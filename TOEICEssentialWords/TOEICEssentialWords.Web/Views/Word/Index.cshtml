@@ -16,25 +16,28 @@
     </div>
     <div class="row">
         <div class="col-lg-6 pronounciation">
-            <div class="pro BrE">
-                <span class="prefix">BrE</span>
-                <span>@Model.BrEPronoun</span>
-                <audio id="@Model.BrEPronoun">
-                    <source src="@string.Format("{0}.mp3",Model.BrESoundUrl)" />
-                    <source src="@string.Format("{0}.ogg",Model.BrESoundUrl)" />
-                </audio>
-                <button onclick="document.getElementById('@Model.BrEPronoun').play()"><i class="glyphicon glyphicon-volume-up"></i></button>
-            </div>
-            <span>;</span>
-            <div class="pro NAmE">
-                <span class="prefix">NAmE</span>
-                <span>@Model.NAmEPronoun</span>
-                <audio id="@Model.NAmEPronoun">
-                    <source src="@string.Format("{0}.mp3",Model.NAmESoundUrl)" />
-                    <source src="@string.Format("{0}.ogg",Model.NAmESoundUrl)" />
-                </audio>
-                <button onclick="document.getElementById('@Model.NAmEPronoun').play()"><i class="glyphicon glyphicon-volume-up"></i></button>
-            </div>
+            @if (Model.HasPronound)
+            {
+                <div class="pro BrE">
+                    <span class="prefix">BrE</span>
+                    <span>@Model.BrEPronoun</span>
+                    <audio id="@Model.BrEPronoun">
+                        <source src="@string.Format("{0}.mp3",Model.BrESoundUrl)" />
+                        <source src="@string.Format("{0}.ogg",Model.BrESoundUrl)" />
+                    </audio>
+                    <button onclick="document.getElementById('@Model.BrEPronoun').play()"><i class="glyphicon glyphicon-volume-up"></i></button>
+                </div>
+                <span>;</span>
+                <div class="pro NAmE">
+                    <span class="prefix">NAmE</span>
+                    <span>@Model.NAmEPronoun</span>
+                    <audio id="@Model.NAmEPronoun">
+                        <source src="@string.Format("{0}.mp3",Model.NAmESoundUrl)" />
+                        <source src="@string.Format("{0}.ogg",Model.NAmESoundUrl)" />
+                    </audio>
+                    <button onclick="document.getElementById('@Model.NAmEPronoun').play()"><i class="glyphicon glyphicon-volume-up"></i></button>
+                </div>
+            }
         </div>
         <div class="col-lg-6 wordlist">
             <button><i class="glyphicon glyphicon-star"></i><span>&nbsp;</span> Add to wordlist</button>
@@ -44,11 +47,11 @@
 <div class="row content-body">
     <div class="col-lg-12">
         <ul>
-            @for (int i = 1; i <= Model.Definitons.Count(); i++)
+            @for (int i = 1; i <= Model.Definitions.Count(); i++)
             {
                 <li>
-                    <span class="def">@Model.Definitons[i - 1].Name</span>
-                    <span class="example">@Model.Definitons[i - 1].Example</span>
+                    <span class="def">@Model.Definitions[i - 1].Name</span>
+                    <span class="example">@Model.Definitions[i - 1].Example</span>
                 </li>
             }
         </ul>

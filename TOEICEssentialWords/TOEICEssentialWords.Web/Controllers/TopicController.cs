@@ -1,4 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using AutoMapper;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 using TOEICEssentialWords.Model.Entities;
 using TOEICEssentialWords.Service.Interfaces;
 using TOEICEssentialWords.Web.ViewModels;
@@ -16,11 +19,11 @@ namespace TOEICEssentialWords.Web.Controllers
 
         public PartialViewResult TopicMenu()
         {
-            var topics = _topicService.AllIncluding(t => t.Lessons);
+            var topics = _topicService.GetAll().OrderBy(x => x.Index);
 
-            return PartialView(new TopicViewModel
+            return PartialView(new TopicMenuViewModel
             {
-                Topics = topics
+                Topics = Mapper.Map<IList<TopicViewModel>>(topics)
             });
         }
     }

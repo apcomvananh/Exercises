@@ -17,6 +17,8 @@ namespace TOEICEssentialWords.Web.ViewModels
 
         public string NAmESoundUrl { get; set; }
 
-        public IList<Definition> Definitons { get; set; }
+        public bool HasPronound { get; set; }
+
+        public IList<Definition> Definitions { get; set; }
     }
 }

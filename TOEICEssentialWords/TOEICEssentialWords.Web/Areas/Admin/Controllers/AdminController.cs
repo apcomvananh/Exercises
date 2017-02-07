@@ -4,7 +4,7 @@ using TOEICEssentialWords.Web.Areas.Admin.ViewModels;
 
 namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = AppConstants.AdminRoleName)]
     public class AdminController : Controller
     {
         public virtual ActionResult Index()

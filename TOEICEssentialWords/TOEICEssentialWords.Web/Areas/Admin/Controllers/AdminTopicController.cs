@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using TOEICEssentialWords.Model.Entities;
 using TOEICEssentialWords.Service.Interfaces;
@@ -19,13 +17,15 @@ namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
             _topicService = topicService;
         }
 
-        // GET: Admin/Topic
-        public override ActionResult Index()
+        public ActionResult Manage(string search)
         {
-            var topics = _topicService.GetAll().OrderBy(t => t.Index);
+            var topics = string.IsNullOrEmpty(search) ? _topicService.GetAll().OrderBy(t => t.Index)
+                : _topicService.FindBy(t => t.Name.Contains(search));
+
             var topicListModel = new AdminTopicListViewModel
             {
-                Topics = topics.ToList()
+                Topics = topics.ToList(),
+                Search = search
             };
 
             return View(topicListModel);
@@ -36,7 +36,6 @@ namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
             return PartialView();
         }
 
-        // POST: Admin/Topic/Create
         [HttpPost]
         public ActionResult Create(AdminTopicViewModel topicModel)
         {
@@ -63,7 +62,6 @@ namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
             return PartialView(topicModel);
         }
 
-        // GET: Admin/Topic/Edit/5
         public PartialViewResult Edit(int id)
         {
             var topic = _topicService.GetSingle(id);
@@ -72,7 +70,6 @@ namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
             return PartialView(topicModel);
         }
 
-        // POST: Admin/Topic/Edit/5
         [HttpPost]
         public ActionResult Edit(AdminTopicViewModel topicModel)
         {

@@ -22,8 +22,15 @@ namespace TOEICEssentialWords.Web
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/pushy").Include(
+                      "~/Scripts/metisMenu.js",
+                      "~/Scripts/pushy.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/pushy.css",
+                      "~/Content/metisMenu.css",
+                      "~/css/font-awesome.css",
                       "~/Content/Style.css"));
 
             bundles.Add(new StyleBundle("~/Content/admincss").Include(

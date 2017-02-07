@@ -8,11 +8,12 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+    @RenderSection("SideBar", false)
     <header>
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".topic-menu">
+                    <button type="button" class="navbar-toggle menu-btn">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -33,7 +34,6 @@
                     }
                 </div>
                 @Html.Partial("_UserTools")
-                @RenderSection("SideBar", false)
             </div>
         </nav>
     </header>
@@ -53,6 +53,12 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/pushy")
     @RenderSection("scripts", required: false)
+    <script>
+        $(function () {
+            $('#topic-menu').metisMenu({ toggle: false });
+        });
+    </script>
 </body>
 </html>

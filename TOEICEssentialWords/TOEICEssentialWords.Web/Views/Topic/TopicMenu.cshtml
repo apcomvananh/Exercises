@@ -1,25 +1,25 @@
 ﻿@using TOEICEssentialWords.Web.ViewModels
-@model TopicViewModel
-<div class="collapse navbar-collapse topic-menu">
-    <div class="side-nav">
-        <ul class="nav navbar-nav">
-            @foreach (var topic in Model.Topics)
-            {
-                <li>
-                    <a href="#" data-toggle="collapse" data-target="#@topic.Id">@topic.Name <i class="glyphicon glyphicon-chevron-right"></i></a>
-                    @if (topic.Lessons != null && topic.Lessons.Count > 0)
+@model TopicMenuViewModel
+
+<nav class="pushy pushy-left side-nav">
+    <ul class="nav" id="topic-menu">
+        @foreach (var topic in Model.Topics)
+        {
+            <li>
+                <a href="#"><i class="fa fa-bookmark fa-fw"></i>@topic.Name <span class="fa arrow"></span></a>
+                @if (topic.HasChild)
                 {
-                        <ul id="@topic.Id" class="collapse">
-                            @foreach (var lesson in topic.Lessons)
-                            {
-                                <li>
-                                    <a href="@Url.Action("Index", "Lesson", new { slug = lesson.Slug })">@lesson.DisplayName</a>
-                                </li>
-                            }
-                        </ul>
-                    }
-                </li>
-            }
-        </ul>
-    </div>
-</div>
+                    <ul id="@topic.Id" class="nav nav-second-level">
+                        @foreach (var lesson in topic.Lessons)
+                    {
+                            <li>
+                                <a href="@Url.Action("Index", "Lesson", new { slug = lesson.Slug })">@lesson.DisplayName</a>
+                            </li>
+                        }
+                    </ul>
+                }
+            </li>
+        }
+    </ul>
+</nav>
+<div class="site-overlay"></div>
