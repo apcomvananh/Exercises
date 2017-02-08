@@ -7,6 +7,11 @@ body {
     counter-reset: number;
 }
 
+ul {
+    list-style: none;
+    padding: 0;
+}
+
 .navbar-default {
     background-color: $secondaryColor;
     border: none;
@@ -123,16 +128,22 @@ body {
     }
 
     .BrE {
-        .prefix {
+        .prefix, .button-sound {
             color: #07255e;
         }
     }
 
     .NAmE {
-        .prefix {
+        .prefix, .button-sound {
             color: #8f0610;
         }
     }
+}
+
+.button-sound {
+    background-color: transparent;
+    border: none;
+    -webkit-appearance: none;
 }
 
 .wordlist {
@@ -164,14 +175,41 @@ body {
             display: block;
 
             &:before {
-                font-family: "Glyphicons Halflings";
-                content: "\e080";
+                font-family: FontAwesome;
+                content: "\f061";
                 color: #f4783d;
                 margin-right: 4px;
                 position: relative;
             }
         }
     }
+}
+
+.intro {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.wordclass {
+    font-style: italic;
+}
+
+.topic-explore {
+    h4 {
+        border-top: 1px solid #c0c0c0;
+        border-bottom: 1px solid #c0c0c0;
+        padding: 8px 0;
+        font-weight: bold;
+    }
+}
+
+.list-nested > li {
+    display: inline-block;
+    padding-right: 15px;
+}
+
+.word-to-learn > li {
+    padding-bottom: 10px;
 }
 
 @media(min-width: 768px) {
@@ -189,18 +227,6 @@ body {
     .wordlist {
         button {
             float: right;
-        }
-    }
-
-    .navbar-nav {
-        li {
-            float: left;
-        }
-
-        .dropdown-menu {
-            li {
-                float: none;
-            }
         }
     }
 }

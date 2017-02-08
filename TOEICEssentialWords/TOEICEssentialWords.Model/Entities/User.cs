@@ -19,6 +19,8 @@ namespace TOEICEssentialWords.Model.Entities
 
         public DateTime DateCreated { get; set; }
 
-        public ICollection<Role> Roles { get; set; }
+        public virtual ICollection<Role> Roles { get; set; }
+
+        public virtual ICollection<Word> WordList { get; set; }
     }
 }

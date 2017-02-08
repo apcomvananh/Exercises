@@ -21,26 +21,26 @@
                 <div class="pro BrE">
                     <span class="prefix">BrE</span>
                     <span>@Model.BrEPronoun</span>
-                    <audio id="@Model.BrEPronoun">
+                    <audio id="BrESound">
                         <source src="@string.Format("{0}.mp3",Model.BrESoundUrl)" />
                         <source src="@string.Format("{0}.ogg",Model.BrESoundUrl)" />
                     </audio>
-                    <button onclick="document.getElementById('@Model.BrEPronoun').play()"><i class="glyphicon glyphicon-volume-up"></i></button>
+                    <button class="button-sound" onclick="document.getElementById('BrESound').play()"><i class="fa fa-volume-up"></i></button>
                 </div>
                 <span>;</span>
                 <div class="pro NAmE">
                     <span class="prefix">NAmE</span>
                     <span>@Model.NAmEPronoun</span>
-                    <audio id="@Model.NAmEPronoun">
+                    <audio id="NAmESound">
                         <source src="@string.Format("{0}.mp3",Model.NAmESoundUrl)" />
                         <source src="@string.Format("{0}.ogg",Model.NAmESoundUrl)" />
                     </audio>
-                    <button onclick="document.getElementById('@Model.NAmEPronoun').play()"><i class="glyphicon glyphicon-volume-up"></i></button>
+                    <button class="button-sound" onclick="document.getElementById('NAmESound').play()"><i class="fa fa-volume-up"></i></button>
                 </div>
             }
         </div>
         <div class="col-lg-6 wordlist">
-            <button><i class="glyphicon glyphicon-star"></i><span>&nbsp;</span> Add to wordlist</button>
+            <button><i class="fa fa-star"></i><span>&nbsp;</span> Add to wordlist</button>
         </div>
     </div>
 </div>

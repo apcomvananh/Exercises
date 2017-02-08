@@ -26,5 +26,7 @@ namespace TOEICEssentialWords.Model.Entities
         public virtual Lesson Lesson { get; set; }
 
         public virtual ICollection<Definition> Definitions { get; set; }
+
+        public virtual ICollection<User> Users { get; set; }
     }
 }

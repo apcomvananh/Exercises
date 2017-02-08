@@ -17,6 +17,9 @@ namespace TOEICEssentialWords.Data.Mappings
 
             HasMany(u => u.Roles).WithMany(r => r.Users)
                 .Map(t => t.ToTable("UserRole").MapLeftKey("UserId").MapRightKey("RoleId"));
+
+            HasMany(u => u.WordList).WithMany(w => w.Users)
+                .Map(t => t.ToTable("WordList").MapLeftKey("UserId").MapRightKey("WordId"));
         }
     }
 }

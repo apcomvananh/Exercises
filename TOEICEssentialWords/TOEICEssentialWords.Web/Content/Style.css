@@ -3,6 +3,10 @@
   background-color: #e2e4e9;
   counter-reset: number; }
 
+ul {
+  list-style: none;
+  padding: 0; }
+
 .navbar-default {
   background-color: #4891dc;
   border: none;
@@ -81,11 +85,16 @@
 .pronounciation .pro {
   display: inline-block; }
 
-.pronounciation .BrE .prefix {
+.pronounciation .BrE .prefix, .pronounciation .BrE .button-sound {
   color: #07255e; }
 
-.pronounciation .NAmE .prefix {
+.pronounciation .NAmE .prefix, .pronounciation .NAmE .button-sound {
   color: #8f0610; }
+
+.button-sound {
+  background-color: transparent;
+  border: none;
+  -webkit-appearance: none; }
 
 .wordlist button {
   color: #4891dc;
@@ -108,11 +117,31 @@
   .counter li .example {
     display: block; }
     .counter li .example:before {
-      font-family: "Glyphicons Halflings";
-      content: "\e080";
+      font-family: FontAwesome;
+      content: "\f061";
       color: #f4783d;
       margin-right: 4px;
       position: relative; }
+
+.intro {
+  font-weight: bold;
+  font-style: italic; }
+
+.wordclass {
+  font-style: italic; }
+
+.topic-explore h4 {
+  border-top: 1px solid #c0c0c0;
+  border-bottom: 1px solid #c0c0c0;
+  padding: 8px 0;
+  font-weight: bold; }
+
+.list-nested > li {
+  display: inline-block;
+  padding-right: 15px; }
+
+.word-to-learn > li {
+  padding-bottom: 10px; }
 
 @media (min-width: 768px) {
   .mainbody {
@@ -123,9 +152,5 @@
     -ms-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); }
   .wordlist button {
-    float: right; }
-  .navbar-nav li {
-    float: left; }
-  .navbar-nav .dropdown-menu li {
-    float: none; } }
+    float: right; } }
 
