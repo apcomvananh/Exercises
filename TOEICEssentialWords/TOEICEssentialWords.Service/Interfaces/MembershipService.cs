@@ -13,5 +13,7 @@ namespace TOEICEssentialWords.Service.Interfaces
         User GetUser(string username);
 
         void CreateUser(User user);
+
+        void AddWordToWordList(string username, Word word);
     }
 }

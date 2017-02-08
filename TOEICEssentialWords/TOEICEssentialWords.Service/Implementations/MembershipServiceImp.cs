@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using TOEICEssentialWords.Data.Infrastructure;
 using TOEICEssentialWords.Data.Repositories;
@@ -11,11 +12,12 @@ namespace TOEICEssentialWords.Service.Implementations
 {
     public class MembershipServiceImp : MembershipService
     {
-        private UnitOfWork _unitOfWork;
-        private BaseRepository<User> _userRepository;
-        private BaseRepository<Role> _roleRepository;
+        private readonly UnitOfWork _unitOfWork;
+        private readonly BaseRepository<User> _userRepository;
+        private readonly BaseRepository<Role> _roleRepository;
 
-        public MembershipServiceImp(UnitOfWork unitOfWork,
+        public MembershipServiceImp(
+            UnitOfWork unitOfWork,
             BaseRepository<User> userRepository,
             BaseRepository<Role> roleRepository)
         {
@@ -51,6 +53,7 @@ namespace TOEICEssentialWords.Service.Implementations
         {
             var user = _userRepository.AllIncluding(u => u.Roles)
                 .FirstOrDefault(u => u.UserName.Equals(username));
+
             return user;
         }
 
@@ -58,6 +61,7 @@ namespace TOEICEssentialWords.Service.Implementations
         {
             var user = _userRepository.AllIncluding(u => u.Roles)
                 .FirstOrDefault(u => u.Id == id);
+
             return user;
         }
 
@@ -74,10 +78,26 @@ namespace TOEICEssentialWords.Service.Implementations
                 {
                     return true;
                 }
+
                 return false;
             }
 
             return false;
+        }
+
+        public void AddWordToWordList(string username, Word word)
+        {
+            var user = GetUser(username);
+            if (!user.WordList.Contains(word))
+            {
+                user.WordList.Add(word);
+                _userRepository.Edit(user);
+                _unitOfWork.Commit();
+            }
+            else
+            {
+                throw new Exception(string.Format("{0} already existed in wordlist", word.Name));
+            }
         }
     }
 }

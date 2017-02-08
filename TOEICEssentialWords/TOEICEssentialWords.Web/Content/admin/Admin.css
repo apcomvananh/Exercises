@@ -7,7 +7,7 @@
   border-bottom: 1px solid #e7eaec;
   padding: 10px; }
 
-.panel {
+.main-panel {
   margin-bottom: 25px;
   margin-top: 0;
   padding: 0;
@@ -15,20 +15,20 @@
   border: none;
   border-top: 4px solid #e7eaec;
   box-shadow: none; }
-  .panel .panel-heading {
+  .main-panel .panel-heading {
     border: none;
     border-bottom: 1px solid #e7eaec;
     margin-bottom: 0;
     padding: 14px 15px 7px;
     min-height: 44px; }
-    .panel .panel-heading h5 {
+    .main-panel .panel-heading h5 {
       display: inline-block;
       margin: 0;
       padding: 0;
       text-overflow: ellipsis;
       float: left;
       font-weight: bold; }
-  .panel .panel-content, .panel .panel-body {
+  .main-panel .panel-content, .main-panel .panel-body {
     padding: 15px 20px 20px 20px; }
 
 .back-button {

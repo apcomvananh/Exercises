@@ -77,10 +77,10 @@ namespace TOEICEssentialWords.Service.Utils
 
         public static string RemoveAccents(string input)
         {
-            var stFormD = input.Normalize(NormalizationForm.FormD);
+            var stringFromD = input.Normalize(NormalizationForm.FormD);
             var sb = new StringBuilder();
 
-            foreach (var t in stFormD)
+            foreach (var t in stringFromD)
             {
                 var uc = CharUnicodeInfo.GetUnicodeCategory(t);
                 if (uc != UnicodeCategory.NonSpacingMark)
@@ -89,7 +89,7 @@ namespace TOEICEssentialWords.Service.Utils
                 }
             }
 
-            return (sb.ToString().Normalize(NormalizationForm.FormC));
+            return sb.ToString().Normalize(NormalizationForm.FormC);
         }
 
         public static string StripNonAlphaNumeric(string strInput, string replaceWith)

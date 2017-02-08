@@ -9,7 +9,7 @@ namespace TOEICEssentialWords.Web.Providers
     {
         private string _applicationName;
         private bool _enablePasswordReset;
-        private bool _enablePasswordRetrieval = false;
+        private bool _enablePasswordRetrieval;
         private bool _requiresQuestionAndAnswer;
         private bool _requiresUniqueEmail;
         private int _maxInvalidPasswordAttempts;
@@ -50,6 +50,7 @@ namespace TOEICEssentialWords.Web.Providers
             _requiresQuestionAndAnswer = Convert.ToBoolean(GetConfigValue(config["requiresQuestionAndAnswer"], "false"));
             _requiresUniqueEmail = Convert.ToBoolean(GetConfigValue(config["requiresUniqueEmail"], "false"));
             _enablePasswordReset = Convert.ToBoolean(GetConfigValue(config["enablePasswordReset"], "true"));
+            _enablePasswordRetrieval = Convert.ToBoolean(GetConfigValue(config["enablePasswordRetrieval"], "false"));
         }
 
         public override bool ValidateUser(string username, string password)

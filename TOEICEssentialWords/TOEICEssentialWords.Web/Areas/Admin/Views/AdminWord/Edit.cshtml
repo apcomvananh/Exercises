@@ -1,65 +1,88 @@
 ﻿@using TOEICEssentialWords.Web.Areas.Admin.ViewModels
 @model AdminWordViewModel
 
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-        @using (Ajax.BeginForm("Edit", "AdminWord", FormMethod.Post, new AjaxOptions
-        {
-            InsertionMode = InsertionMode.Replace,
-            HttpMethod = "POST",
-            UpdateTargetId = "wordModal",
-            OnSuccess = "AdminWord.Success(data)"
-        }))
-        {
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="wordModalLabel">Edit Lesson</h4>
-            </div>
-            <div class="modal-body">
-                @Html.ValidationSummary()
-                @Html.AntiForgeryToken()
-                @Html.HiddenFor(model => model.Id)
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Name, new { @class = "control-label" })
-                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.Name)
-                </div>
+@{
+    ViewBag.Title = "Edit Word";
+}
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.WordType, new { @class = "control-label" })
-                    @Html.EnumDropDownListFor(model => model.WordType, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.WordType)
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.BrEPronoun, new { @class = "control-label" })
-                    @Html.TextBoxFor(model => model.BrEPronoun, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.BrEPronoun)
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.BrESoundUrl, new { @class = "control-label" })
-                    @Html.TextBoxFor(model => model.BrESoundUrl, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.BrESoundUrl)
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.NAmEPronoun, new { @class = "control-label" })
-                    @Html.TextBoxFor(model => model.NAmEPronoun, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.NAmEPronoun)
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.NAmESoundUrl, new { @class = "control-label" })
-                    @Html.TextBoxFor(model => model.NAmESoundUrl, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.NAmESoundUrl)
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.LessonId, new { @class = "control-label" })
-                    @Html.DropDownListFor(model => model.LessonId, Model.AllLessons, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.LessonId)
-                </div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="back-button">
+            <div class="btn-group">
+                <a href="@Url.Action("Index")" class="btn btn-success">&lt;&lt; Back</a>
             </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-success">Save</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        </div>
+        <div class="panel main-panel">
+            <div class="panel-heading">
+                <h5>@ViewBag.Title</h5>
             </div>
-        }
+            <div class="panel-content">
+                @using (Html.BeginForm("Edit", "AdminWord", FormMethod.Post))
+                {
+
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary()
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model => model.Id)
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Name)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.WordType, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EnumDropDownListFor(model => model.WordType, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.WordType)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.BrEPronoun, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.BrEPronoun, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BrEPronoun)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.BrESoundUrl, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.BrESoundUrl, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BrESoundUrl)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.NAmEPronoun, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.NAmEPronoun, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.NAmEPronoun)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.NAmESoundUrl, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.NAmESoundUrl, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.NAmESoundUrl)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.LessonId, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(model => model.LessonId, Model.AllLessons, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.LessonId)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <button type="submit" class="btn btn-success">Save</button>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+                @{ Html.RenderAction("Index", "Definition", new { id = Model.Id });}
+            </div>
+        </div>
     </div>
 </div>

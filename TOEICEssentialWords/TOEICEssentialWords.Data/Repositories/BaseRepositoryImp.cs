@@ -11,6 +11,11 @@ namespace TOEICEssentialWords.Data.Repositories
     {
         private EssentialWordsContext _dataContext;
 
+        public BaseRepositoryImp(DataFactory dataFactory)
+        {
+            DataFactory = dataFactory;
+        }
+
         protected DataFactory DataFactory { get; private set; }
 
         protected EssentialWordsContext DataContext
@@ -21,11 +26,6 @@ namespace TOEICEssentialWords.Data.Repositories
             }
         }
 
-        public BaseRepositoryImp(DataFactory dataFactory)
-        {
-            DataFactory = dataFactory;
-        }
-
         public IQueryable<T> GetAll()
         {
             return DataContext.Set<T>();
@@ -34,10 +34,12 @@ namespace TOEICEssentialWords.Data.Repositories
         public IQueryable<T> AllIncluding(params Expression<Func<T, object>>[] includeProperties)
         {
             IQueryable<T> query = DataContext.Set<T>();
+
             foreach (var includeProperty in includeProperties)
             {
                 query = query.Include(includeProperty);
             }
+
             return query;
         }
 

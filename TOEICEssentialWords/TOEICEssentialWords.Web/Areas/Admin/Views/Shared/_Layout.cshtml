@@ -16,11 +16,7 @@
         <div id="page-wrapper">
             <div class="container-fluid">
                 @Html.Partial("_GenericMessage")
-                <div class="row">
-                    <div class="col-lg-12">
-                        @RenderBody()
-                    </div>
-                </div>
+                @RenderBody()
                 <footer>
                     @RenderSection("AdminFooter", false)
                     <p>&copy; <a href="#">Phuong Nguyen</a> @DateTime.UtcNow.Year</p>

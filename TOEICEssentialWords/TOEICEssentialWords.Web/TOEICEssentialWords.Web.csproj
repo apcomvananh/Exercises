@@ -179,6 +179,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminLessonController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DefinitionController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoleController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminTopicController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
@@ -263,6 +264,7 @@
     <Content Include="Areas\Admin\Views\AdminWord\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminWord\Create.cshtml" />
     <Content Include="Areas\Admin\Views\AdminWord\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Definition\Index.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -275,8 +277,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Scripts\addtowordlist.js" />
     <Content Include="Scripts\admin\admin.js" />
-    <Content Include="Scripts\admin\FadeOutMessage.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\admin\Admin.scss" />
@@ -332,6 +334,7 @@
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_UserTools.cshtml" />
+    <Content Include="Views\Shared\_GenericMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

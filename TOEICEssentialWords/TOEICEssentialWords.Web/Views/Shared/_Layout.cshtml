@@ -43,6 +43,7 @@
     </section>
     <footer class="navbar-fixed-bottom">
         <div class="container">
+
             <div class="row">
                 <div class="col-md-12">
                     <p>&copy; @DateTime.UtcNow.Year - Powered by <a href="http://nexcel.vn">Nexcel Solutions</a></p>
@@ -54,11 +55,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/pushy")
+    @Scripts.Render("~/bundles/clientjs")
     @RenderSection("scripts", required: false)
-    <script>
-        $(function () {
-            $('#topic-menu').metisMenu({ toggle: false });
-        });
-    </script>
 </body>
 </html>

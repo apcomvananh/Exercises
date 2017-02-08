@@ -71,14 +71,14 @@ namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
             return PartialView(wordModel);
         }
 
-        public PartialViewResult Edit(int id)
+        public ActionResult Edit(int id)
         {
             var word = _wordService.GetSingle(id);
 
             var wordModel = Mapper.Map<AdminWordViewModel>(word);
             wordModel.AllLessons = GetSelectListLessons();
 
-            return PartialView(wordModel);
+            return View(wordModel);
         }
 
         [HttpPost]
@@ -96,23 +96,23 @@ namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
                     word.BrESoundUrl = wordModel.BrESoundUrl;
                     word.NAmEPronoun = wordModel.NAmEPronoun;
                     word.NAmESoundUrl = wordModel.NAmESoundUrl;
-
                     _wordService.Edit(word);
 
-                    return Json(new { success = true });
+                    ShowGenericMessage(GenericMessages.success, "Word saved");
+
+                    return RedirectToAction("Index");
                 }
                 catch (Exception ex)
                 {
                     ModelState.AddModelError(string.Empty, ex.Message);
                     wordModel.AllLessons = GetSelectListLessons();
-
-                    return PartialView(wordModel);
+                    return View(wordModel);
                 }
             }
 
             wordModel.AllLessons = GetSelectListLessons();
 
-            return PartialView(wordModel);
+            return View(wordModel);
         }
 
         public ActionResult Delete(int id)

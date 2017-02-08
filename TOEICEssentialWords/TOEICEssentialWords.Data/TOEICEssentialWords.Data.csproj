@@ -74,6 +74,10 @@
     <Compile Include="Migrations\201702021011162_AddSlug.Designer.cs">
       <DependentUpon>201702021011162_AddSlug.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702080315133_WordList.cs" />
+    <Compile Include="Migrations\201702080315133_WordList.Designer.cs">
+      <DependentUpon>201702080315133_WordList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -98,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702021011162_AddSlug.resx">
       <DependentUpon>201702021011162_AddSlug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702080315133_WordList.resx">
+      <DependentUpon>201702080315133_WordList.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

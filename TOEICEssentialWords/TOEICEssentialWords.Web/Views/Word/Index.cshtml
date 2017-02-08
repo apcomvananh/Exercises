@@ -4,7 +4,7 @@
 @{
     ViewBag.Title = Model.Name;
 }
-
+@Html.Hidden("AddToWordListUrl", Url.Action("AddToWordList", new { wordId = Model.Id }))
 <div class="header-container">
     <div class="row content-header">
         <div class="col-lg-12">
@@ -40,7 +40,7 @@
             }
         </div>
         <div class="col-lg-6 wordlist">
-            <button><i class="fa fa-star"></i><span>&nbsp;</span> Add to wordlist</button>
+            <button id="btnAddToWordList"><i class="fa fa-star"></i><span>&nbsp;</span> Add to wordlist</button>
         </div>
     </div>
 </div>

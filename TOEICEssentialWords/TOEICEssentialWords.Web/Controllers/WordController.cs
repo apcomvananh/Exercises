@@ -4,6 +4,8 @@ using TOEICEssentialWords.Service.Interfaces;
 using TOEICEssentialWords.Web.ViewModels;
 using System.Linq;
 using AutoMapper;
+using TOEICEssentialWords.Web.Providers;
+using System;
 
 namespace TOEICEssentialWords.Web.Controllers
 {
@@ -43,10 +45,22 @@ namespace TOEICEssentialWords.Web.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
-        public ActionResult AddToWordList(int wordId)
+        public void AddToWordList(int wordId)
         {
-            return View();
+            if (Request.IsAjaxRequest())
+            {
+                var membershipService = ServiceFactory.Get<MembershipService>();
+                try
+                {
+                    membershipService.AddWordToWordList(User.Identity.Name, _wordService.GetSingle(wordId));
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
         }
     }
 }

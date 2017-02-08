@@ -9,7 +9,16 @@
 <div class="mainbody">
     <div class="main-wrapper">
         <div class="container-fluid content-wrapper">
+            @Html.Partial("_GenericMessage")
             @RenderBody()
         </div>
     </div>
 </div>
+
+@section scripts{
+    <script>
+        $(function () {
+            $('#topic-menu').metisMenu({ toggle: false });
+        });
+    </script>
+}

@@ -26,6 +26,11 @@ namespace TOEICEssentialWords.Web
                       "~/Scripts/metisMenu.js",
                       "~/Scripts/pushy.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/clientjs").Include(
+                      "~/Scripts/common.js",
+                      "~/Scripts/admin/FadeOutMessage.js",
+                      "~/Scripts/addtowordlist.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/pushy.css",

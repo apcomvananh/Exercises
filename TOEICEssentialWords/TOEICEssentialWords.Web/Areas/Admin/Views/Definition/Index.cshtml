@@ -1,0 +1,39 @@
+﻿@model IEnumerable<TOEICEssentialWords.Model.Entities.Definition>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <strong>Definitions</strong>
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Definition</th>
+                    <th>Example</th>
+                    <th><button class="btn btn-primary pull-right" onclick=""><span class="glyphicon glyphicon-plus"></span></button></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Example)
+                        </td>
+                        <td>
+                            <div class="pull-right"></div>
+                            <button class="btn btn-warning" onclick=""><span class="glyphicon glyphicon-pencil"></span></button>
+                            <a href="@Url.Action("Delete", new { item.Id })" class="btn btn-danger">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            </a>
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -28,6 +28,12 @@ namespace TOEICEssentialWords.Web
             );
 
             routes.MapRoute(
+                "addWordListUrl",
+                string.Concat("word", "addtowordlist"),
+                new { controller = "Word", action = "AddToWordList" }
+            );
+
+            routes.MapRoute(
                 "wordUrl",
                 string.Concat("word", "/{slug}"),
                 new { controller = "Word", action = "Index", slug = UrlParameter.Optional }
