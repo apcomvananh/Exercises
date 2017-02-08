@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Web.Mvc;
 using TOEICEssentialWords.Model.Entities;
 using TOEICEssentialWords.Service.Interfaces;
@@ -71,9 +72,18 @@ namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
             return PartialView(wordModel);
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            var word = _wordService.GetSingle(id);
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var word = _wordService.GetSingle(id.Value);
+            if (word == null)
+            {
+                return HttpNotFound();
+            }
 
             var wordModel = Mapper.Map<AdminWordViewModel>(word);
             wordModel.AllLessons = GetSelectListLessons();

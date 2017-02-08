@@ -1,0 +1,49 @@
+﻿@using TOEICEssentialWords.Web.Areas.Admin.ViewModels
+@model DefinitionListViewModel
+
+@Html.Hidden("CreateDefinitionUrl", Url.Action("Create"))
+@Html.Hidden("EditDefinitionUrl", Url.Action("Edit"))
+@Html.Hidden("DeleteDefinitionUrl", Url.Action("Delete"))
+<div class="panel panel-default col-md-offset-2">
+    <div class="panel-heading">
+        <strong>Definitions</strong>
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Definition</th>
+                    <th>Example</th>
+                    <th>
+                        <button class="btn btn-primary pull-right" onclick="Definition.CreateDefinition(@Model.WordId)">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var definition in Model.Definitions)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => definition.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => definition.Example)
+                        </td>
+                        <td>
+                            <div class="pull-right"></div>
+                            <button class="btn btn-warning" onclick="Definition.EditDefinition(@definition.Id)">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </button>
+                            <button class="btn btn-danger" onclick="Definition.DeleteDefition(@definition.Id)">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            </button>
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

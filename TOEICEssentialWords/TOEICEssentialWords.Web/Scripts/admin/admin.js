@@ -127,14 +127,6 @@ var AdminWord = {
         })
     },
 
-    EditWord: function (id) {
-        var url = $('#EditWordUrl').val();
-        CallAjaxGetFunction(url, { id: id }, function (data) {
-            $('#wordModal').html(data);
-            $('#wordModal').modal('show');
-        })
-    },
-
     Success: function (data) {
         if (data.success == true) {
             $('#wordModal').modal('hide');
@@ -144,5 +136,50 @@ var AdminWord = {
             $('#wordModal').html(data);
             $('#wordModal').modal('show');
         }
+    }
+}
+
+var Definition = {
+    CreateDefinition: function (wordId) {
+        var url = $('#CreateDefinitionUrl').val();
+        CallAjaxGetFunction(url, { wordId: wordId }, function (data) {
+            $('#definitionModal').html(data);
+            $('#definitionModal').modal('show');
+        })
+    },
+
+    EditDefinition: function (id) {
+        var url = $('#EditDefinitionUrl').val();
+        CallAjaxGetFunction(url, { id: id }, function (data) {
+            $('#definitionModal').html(data);
+            $('#definitionModal').modal('show');
+        })
+    },
+
+    DeleteDefition: function (id) {
+        var url = $('#DeleteDefinitionUrl').val();
+        CallAjaxGetFunction(url, { id: id }, function (data) {
+            if (data.success == true) {
+                Definition.ReloadDefinitons(data.wordId);
+            }
+        })
+    },
+
+    Success: function (data) {
+        if (data.success == true) {
+            $('#definitionModal').modal('hide');
+            Definition.ReloadDefinitons(data.wordId);
+        }
+        else {
+            $('#definitionModal').html(data);
+            $('#definitionModal').modal('show');
+        }
+    },
+
+    ReloadDefinitons: function (wordId) {
+        var url = $('#GetDefinitionUrl').val();
+        CallAjaxGetFunction(url, { wordId: wordId }, function (data) {
+            $('#definitionContainer').html(data);
+        })
     }
 }

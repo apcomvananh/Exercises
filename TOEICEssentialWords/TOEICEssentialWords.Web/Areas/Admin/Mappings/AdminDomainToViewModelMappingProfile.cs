@@ -27,6 +27,8 @@ namespace TOEICEssentialWords.Web.Areas.Admin.Mappings
 
             Mapper.CreateMap<Word, AdminWordViewModel>()
                 .ForMember(vm => vm.LessonName, map => map.MapFrom(m => m.Lesson.Name));
+
+            Mapper.CreateMap<Definition, DefinitionViewModel>();
         }
     }
 }

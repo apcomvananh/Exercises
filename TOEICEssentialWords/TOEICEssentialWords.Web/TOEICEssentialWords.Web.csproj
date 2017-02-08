@@ -187,6 +187,7 @@
     <Compile Include="Areas\Admin\ViewModels\AdminLessonViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\AdminTopicViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\AdminWordViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\DefinitionViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\GenericMessageViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\RoleViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\UserViewModel.cs" />
@@ -264,7 +265,9 @@
     <Content Include="Areas\Admin\Views\AdminWord\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminWord\Create.cshtml" />
     <Content Include="Areas\Admin\Views\AdminWord\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Definition\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Definition\ListDefinitions.cshtml" />
+    <Content Include="Areas\Admin\Views\Definition\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Definition\Edit.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
