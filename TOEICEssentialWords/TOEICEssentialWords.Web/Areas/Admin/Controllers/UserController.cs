@@ -20,7 +20,7 @@ namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
             _roleService = roleService;
         }
 
-        public override ActionResult Index()
+        public ActionResult Manage()
         {
             var users = _userService.AllIncluding(u => u.Roles);
             var userListModel = new UserListViewModel

@@ -179,6 +179,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminLessonController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\DefinitionController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoleController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminTopicController.cs" />
@@ -187,6 +188,7 @@
     <Compile Include="Areas\Admin\ViewModels\AdminLessonViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\AdminTopicViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\AdminWordViewModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\DashboardViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\DefinitionViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\GenericMessageViewModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\RoleViewModel.cs" />
@@ -208,6 +210,7 @@
     <Compile Include="Providers\ServiceFactory.cs" />
     <Compile Include="ViewModels\LessonViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\NotFoundWordViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\TopicViewModel.cs" />
     <Compile Include="ViewModels\WordViewModel.cs" />
@@ -219,8 +222,6 @@
     <Content Include="Content\admin\Admin.min.css">
       <DependentUpon>Admin.css</DependentUpon>
     </Content>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\toeic-essential-words.jpg" />
@@ -235,11 +236,11 @@
     <Content Include="Content\Style.min.css">
       <DependentUpon>Style.css</DependentUpon>
     </Content>
-    <Content Include="css\font-awesome.css" />
-    <Content Include="css\font-awesome.min.css" />
+    <Content Include="Content\font-awesome\font-awesome.css" />
+    <Content Include="Content\font-awesome\font-awesome.min.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -249,8 +250,8 @@
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Role\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Manage.cshtml" />
+    <Content Include="Areas\Admin\Views\Role\Manage.cshtml" />
     <Content Include="Areas\Admin\Views\Role\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Role\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AdminTopNav.cshtml" />
@@ -259,37 +260,36 @@
     <Content Include="Areas\Admin\Views\AdminTopic\Manage.cshtml" />
     <Content Include="Areas\Admin\Views\AdminTopic\Create.cshtml" />
     <Content Include="Areas\Admin\Views\AdminTopic\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminLesson\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminLesson\Manage.cshtml" />
     <Content Include="Areas\Admin\Views\AdminLesson\Create.cshtml" />
     <Content Include="Areas\Admin\Views\AdminLesson\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminWord\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminWord\Manage.cshtml" />
     <Content Include="Areas\Admin\Views\AdminWord\Create.cshtml" />
     <Content Include="Areas\Admin\Views\AdminWord\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Definition\ListDefinitions.cshtml" />
     <Content Include="Areas\Admin\Views\Definition\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Definition\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Dashboard.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Scripts\addtowordlist.js" />
     <Content Include="Scripts\admin\admin.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\admin\Admin.scss" />
-    <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="fonts\fontawesome-webfont.woff2" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
     <Content Include="Scripts\common.js" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
@@ -324,8 +324,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Topic\TopicMenu.cshtml" />
     <Content Include="Views\Lesson\Index.cshtml" />
@@ -344,7 +342,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TOEICEssentialWords.Data\TOEICEssentialWords.Data.csproj">

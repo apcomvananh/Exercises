@@ -8,10 +8,10 @@
                 <a href="#"><i class="fa fa-users fa-fw"></i> Membership<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="@Url.Action("Index","User",new { area = "Admin" },null)"> Manage Users</a>
+                        <a href="@Url.Action("Manage","User",new { area = "Admin" },null)"> Manage Users</a>
                     </li>
                     <li>
-                        <a href="@Url.Action("Index","Role",new { area = "Admin" },null)"> Manage Roles</a>
+                        <a href="@Url.Action("Manage","Role",new { area = "Admin" },null)"> Manage Roles</a>
                     </li>
                 </ul>
             </li>
@@ -22,10 +22,10 @@
                         <a href="@Url.Action("Manage", "AdminTopic", new { area = "Admin" })">Manage Topics</a>
                     </li>
                     <li>
-                        <a href="@Url.Action("Index", "AdminLesson", new { area = "Admin" })">Manage Lessons</a>
+                        <a href="@Url.Action("Manage", "AdminLesson", new { area = "Admin" })">Manage Lessons</a>
                     </li>
                     <li>
-                        <a href="@Url.Action("Index", "AdminWord", new { area = "Admin" })">Manage Words</a>
+                        <a href="@Url.Action("Manage", "AdminWord", new { area = "Admin" })">Manage Words</a>
                     </li>
                 </ul>
             </li>

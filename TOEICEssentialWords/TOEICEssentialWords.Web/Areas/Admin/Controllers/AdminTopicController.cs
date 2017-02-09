@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using System;
 using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 using TOEICEssentialWords.Model.Entities;
 using TOEICEssentialWords.Service.Interfaces;
@@ -62,9 +63,19 @@ namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
             return PartialView(topicModel);
         }
 
-        public PartialViewResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            var topic = _topicService.GetSingle(id);
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var topic = _topicService.GetSingle(id.Value);
+            if (topic == null)
+            {
+                return HttpNotFound();
+            }
+
             var topicModel = Mapper.Map<AdminTopicViewModel>(topic);
 
             return PartialView(topicModel);
@@ -109,7 +120,7 @@ namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
                 ShowGenericMessage(GenericMessages.danger, ex.Message);
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Manage");
         }
     }
 }

@@ -7,9 +7,9 @@
             success: function (data) {
                 ShowGenericMessage("Word was added to wordlist");
             },
-            error: function (xhr, ajaxOptions, thrownError) {
-                ShowGenericMessage("Error: " + xhr.status + " " + thrownError);
-            }
+            error: function (data, xhr, ajaxOptions, thrownError) {
+                ShowGenericMessage("Error: " + xhr.status + " " +thrownError);
+        }
         });
     });
 });

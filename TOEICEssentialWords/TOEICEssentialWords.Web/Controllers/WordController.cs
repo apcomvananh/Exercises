@@ -1,11 +1,11 @@
-﻿using System.Web.Mvc;
+﻿using AutoMapper;
+using System;
+using System.Linq;
+using System.Web.Mvc;
 using TOEICEssentialWords.Model.Entities;
 using TOEICEssentialWords.Service.Interfaces;
-using TOEICEssentialWords.Web.ViewModels;
-using System.Linq;
-using AutoMapper;
 using TOEICEssentialWords.Web.Providers;
-using System;
+using TOEICEssentialWords.Web.ViewModels;
 
 namespace TOEICEssentialWords.Web.Controllers
 {
@@ -36,13 +36,14 @@ namespace TOEICEssentialWords.Web.Controllers
                 return RedirectToAction("Index", new { slug = word.Slug });
             }
 
-            return RedirectToAction("NotFound", new { keyword = keyword });
-        }
+            var nearResults = _wordService.FindBy(w => w.Name.Contains(keyword)).ToList();
+            var notFoundViewModel = new NotFoundWordViewModel
+            {
+                KeyWord = keyword,
+                NearestResults = nearResults
+            };
 
-        public ActionResult NotFound(string keyword)
-        {
-            ViewBag.KeyWord = keyword;
-            return View();
+            return View("NotFound", notFoundViewModel);
         }
 
         [Authorize]

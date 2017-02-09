@@ -131,8 +131,8 @@ ul {
   font-style: italic; }
 
 .topic-explore h4 {
-  border-top: 1px solid #c0c0c0;
-  border-bottom: 1px solid #c0c0c0;
+  border-top: 1px solid #bebebe;
+  border-bottom: 1px solid #bebebe;
   padding: 8px 0;
   font-weight: bold; }
 
@@ -142,6 +142,19 @@ ul {
 
 .word-to-learn > li {
   padding-bottom: 10px; }
+
+.search-result h2 {
+  color: #0d3880;
+  margin-top: 10px;
+  line-height: 1.2em; }
+
+@media (max-width: 767px) {
+  body {
+    margin-top: 170px; }
+  .navbar-right {
+    text-align: center; }
+    .navbar-right li {
+      display: inline-block; } }
 
 @media (min-width: 768px) {
   .mainbody {

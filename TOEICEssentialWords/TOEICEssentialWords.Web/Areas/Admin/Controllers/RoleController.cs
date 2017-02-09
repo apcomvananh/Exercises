@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using System;
 using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 using TOEICEssentialWords.Model.Entities;
 using TOEICEssentialWords.Service.Interfaces;
@@ -17,7 +18,7 @@ namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
             _roleService = roleService;
         }
 
-        public override ActionResult Index()
+        public ActionResult Manage()
         {
             var roles = _roleService.GetAll();
 
@@ -58,10 +59,21 @@ namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
             return PartialView(roleModel);
         }
 
-        public PartialViewResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            var role = _roleService.GetSingle(id);
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var role = _roleService.GetSingle(id.Value);
+            if (role == null)
+            {
+                return HttpNotFound();
+            }
+
             var roleModel = Mapper.Map<RoleViewModel>(role);
+
             return PartialView(roleModel);
         }
 
@@ -87,13 +99,22 @@ namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
             return PartialView(roleModel);
         }
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var role = _roleService.GetSingle(id.Value);
+            if (role == null)
+            {
+                return HttpNotFound();
+            }
+
             try
             {
-                var role = _roleService.GetSingle(id);
                 _roleService.Delete(role);
-
                 ShowGenericMessage(GenericMessages.success, "Role Deleted");
             }
             catch (Exception ex)
@@ -101,7 +122,7 @@ namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
                 ShowGenericMessage(GenericMessages.danger, ex.Message);
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Manage");
         }
     }
 }

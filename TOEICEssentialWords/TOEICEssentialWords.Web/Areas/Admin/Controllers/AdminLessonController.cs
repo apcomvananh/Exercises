@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 using TOEICEssentialWords.Model.Entities;
 using TOEICEssentialWords.Service.Interfaces;
@@ -19,11 +21,15 @@ namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
             _topicService = topicService;
         }
 
-        public override ActionResult Index()
+        public ActionResult Manage(string search)
         {
-            var lessons = _lessonService.GetAll();
+            var lessons = string.IsNullOrEmpty(search)
+                ? _lessonService.GetAll().OrderBy(l => l.LessonNumber)
+                : _lessonService.FindBy(l => l.Name.Contains(search)).OrderBy(l => l.LessonNumber);
+
             var lessonListModel = new AdminLessonListViewModel
             {
+                Search = search,
                 Lessons = Mapper.Map<IList<AdminLessonViewModel>>(lessons)
             };
 
@@ -66,11 +72,22 @@ namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
             return PartialView(lessonModel);
         }
 
-        public PartialViewResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            var lesson = _lessonService.GetSingle(id);
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var lesson = _lessonService.GetSingle(id.Value);
+            if (lesson == null)
+            {
+                return HttpNotFound();
+            }
+
             var lessonViewModel = Mapper.Map<AdminLessonViewModel>(lesson);
             lessonViewModel.AllTopics = GetSelectListTopics();
+
             return PartialView(lessonViewModel);
         }
 
@@ -117,7 +134,7 @@ namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
                 ShowGenericMessage(GenericMessages.danger, ex.Message);
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Manage");
         }
 
         private IList<SelectListItem> GetSelectListTopics()

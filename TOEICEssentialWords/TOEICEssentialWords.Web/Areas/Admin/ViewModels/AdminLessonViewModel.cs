@@ -32,6 +32,8 @@ namespace TOEICEssentialWords.Web.Areas.Admin.ViewModels
 
     public class AdminLessonListViewModel
     {
+        public string Search { get; set; }
+
         public IList<AdminLessonViewModel> Lessons { get; set; }
     }
 }

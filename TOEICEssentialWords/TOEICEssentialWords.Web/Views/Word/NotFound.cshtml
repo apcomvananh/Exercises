@@ -1,5 +1,16 @@
-﻿@{
+﻿@model TOEICEssentialWords.Web.ViewModels.NotFoundWordViewModel
+@{
     ViewBag.Title = "NotFound";
 }
-
-<h2>No exact match found for "@ViewBag.KeyWord" in TOEIC Esssential Words</h2>
+<div class="search-result">
+    <h2>No exact match found for "@Model.KeyWord" in TOEIC Esssential Words</h2>
+    <h2>Nearest results:</h2>
+    <ul>
+        @foreach (var result in Model.NearestResults)
+        {
+            <li>
+                <a href="@Url.Action("Index", new { slug = result.Slug })">@result.Name</a>&nbsp;<span class="wordclass">@result.WordType.ToString()</span>
+            </li>
+        }
+    </ul>
+</div>

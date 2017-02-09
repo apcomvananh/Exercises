@@ -20,12 +20,15 @@ namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
             _lessonService = lessonService;
         }
 
-        public override ActionResult Index()
+        public ActionResult Manage(string search)
         {
-            var words = _wordService.GetAll();
+            var words = string.IsNullOrEmpty(search)
+                ? _wordService.GetAll()
+                : _wordService.FindBy(w => w.Name.Contains(search));
 
             var wordListModel = new AdminWordListViewModel
             {
+                Search = search,
                 Words = Mapper.Map<IList<AdminWordViewModel>>(words)
             };
 
@@ -106,11 +109,13 @@ namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
                     word.BrESoundUrl = wordModel.BrESoundUrl;
                     word.NAmEPronoun = wordModel.NAmEPronoun;
                     word.NAmESoundUrl = wordModel.NAmESoundUrl;
+                    word.LessonId = wordModel.LessonId;
+
                     _wordService.Edit(word);
 
                     ShowGenericMessage(GenericMessages.success, "Word saved");
 
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Manage");
                 }
                 catch (Exception ex)
                 {
@@ -139,7 +144,7 @@ namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
                 ShowGenericMessage(GenericMessages.danger, ex.Message);
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Manage");
         }
 
         private IList<SelectListItem> GetSelectListLessons()

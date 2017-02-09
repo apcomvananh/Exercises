@@ -25,6 +25,7 @@ namespace TOEICEssentialWords.Web.Controllers
             {
                 viewModel.ReturnUrl = returnUrl;
             }
+
             return View(viewModel);
         }
 

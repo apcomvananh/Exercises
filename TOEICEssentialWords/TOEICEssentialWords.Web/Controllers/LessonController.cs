@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using System.Linq;
 using TOEICEssentialWords.Model.Entities;
 using TOEICEssentialWords.Service.Interfaces;
 using TOEICEssentialWords.Web.ViewModels;

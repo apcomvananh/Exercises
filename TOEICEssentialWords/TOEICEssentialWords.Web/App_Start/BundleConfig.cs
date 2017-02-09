@@ -22,20 +22,17 @@ namespace TOEICEssentialWords.Web
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/pushy").Include(
-                      "~/Scripts/metisMenu.js",
-                      "~/Scripts/pushy.js"));
-
             bundles.Add(new ScriptBundle("~/bundles/clientjs").Include(
                       "~/Scripts/common.js",
-                      "~/Scripts/admin/FadeOutMessage.js",
+                      "~/Scripts/metisMenu.js",
+                      "~/Scripts/pushy.js",
                       "~/Scripts/addtowordlist.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/pushy.css",
                       "~/Content/metisMenu.css",
-                      "~/css/font-awesome.css",
+                      "~/Content/font-awesome/font-awesome.css",
                       "~/Content/Style.css"));
 
             bundles.Add(new StyleBundle("~/Content/admincss").Include(
@@ -43,7 +40,7 @@ namespace TOEICEssentialWords.Web
                       "~/Content/metisMenu.css",
                       "~/Content/admin/sb-admin-2.css",
                       "~/Content/admin/Admin.css",
-                      "~/css/font-awesome.css"));
+                      "~/Content/font-awesome/font-awesome.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/adminjs").Include(
                       "~/Scripts/jquery.unobtrusive-ajax.min.js",
