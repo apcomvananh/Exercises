@@ -158,11 +158,18 @@ var Definition = {
 
     DeleteDefition: function (id) {
         var url = $('#DeleteDefinitionUrl').val();
-        CallAjaxGetFunction(url, { id: id }, function (data) {
-            if (data.success == true) {
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: { id: id },
+            success: function (data) {
+                ShowGenericMessage("Definition Deleted");
                 Definition.ReloadDefinitons(data.wordId);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                ShowGenericMessage("Error: " + xhr.status + " " + thrownError);
             }
-        })
+        });
     },
 
     Success: function (data) {

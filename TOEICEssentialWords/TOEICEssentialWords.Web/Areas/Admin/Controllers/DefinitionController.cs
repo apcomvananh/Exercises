@@ -106,28 +106,19 @@ namespace TOEICEssentialWords.Web.Areas.Admin.Controllers
             return PartialView(model);
         }
 
-        public ActionResult Delete(int? id)
+        [HttpPost]
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            var definition = _definitionService.GetSingle(id.Value);
-            if (definition == null)
-            {
-                return HttpNotFound();
-            }
-
             try
             {
+                var definition = _definitionService.GetSingle(id);
                 _definitionService.Delete(definition);
+
                 return Json(new { success = true, wordId = definition.WordId });
             }
             catch (Exception ex)
             {
-                ShowGenericMessage(GenericMessages.danger, ex.Message);
-                return Json(new { success = false });
+                throw ex;
             }
         }
     }
