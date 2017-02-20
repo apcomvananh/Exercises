@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Functions>
+  <Function Key="Categories">
+    <Setting Key="QueryCategories" SpName="GetCategories" DbName="Northwind">
+      <Mapping DataField="CategoryId" ObjectProperty="Id" />
+      <Mapping DataField="CategoryName" ObjectProperty="Name" />
+    </Setting>
+    <Setting Key="GetCategoryById" SpName="GetCategoryById" DbName="Northwind">
+      <Mapping DataField="CategoryId" ObjectProperty="Id" />
+      <Mapping DataField="CategoryName" ObjectProperty="Name" />
+    </Setting>
+    <Setting Key="AddCategory" SpName="AddCategory" DbName="Northwind">
+    </Setting>
+    <Setting Key="UpdateCategory" SpName="UpdateCategory" DbName="Northwind">
+    </Setting>
+    <Setting Key="DeleteCategory" SpName="DeleteCategory" DbName="Northwind">
+    </Setting>
+  </Function>
+</Functions>
